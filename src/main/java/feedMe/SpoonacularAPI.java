@@ -20,6 +20,9 @@ import com.google.appengine.repackaged.org.codehaus.jackson.map.ObjectMapper;
 
 
 public class SpoonacularAPI {
+	public String weeklyrecipe 
+	      = "Raw Mocha Coconut Brownie Tarts [Paleo-friendly]"; // weekly featured recipe every subscriber gets
+	public int weeklyrecipeID = 539193; // weekly featured recipe id
 	
 	private SpoonacularAPI() {}
 	
@@ -31,7 +34,6 @@ public class SpoonacularAPI {
 
 	public HttpURLConnection getRandomRecipeConnection() throws IOException {
 		//send request to API for random recipe
-
 		URL url = new URL("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=1&tags=vegetarian%2Cdessert");
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestProperty("X-Mashape-Key", "IveATqgidUmshh51JwkUjJa2kGAgp1wfynojsn358NrsAalt2G");
@@ -51,8 +53,7 @@ public class SpoonacularAPI {
 	public HttpServletRequest parseRandomRecipe(HttpServletRequest req, HttpURLConnection conn) throws IOException {
 		//parse random recipe for id to get recipe info properly
 		int respCode = conn.getResponseCode();
-		if (respCode == HttpURLConnection.HTTP_OK) {
-			
+		if (respCode == HttpURLConnection.HTTP_OK) {		
 		  req.setAttribute("error", "");
 		  StringBuffer response = new StringBuffer();
 		  String line;
@@ -190,5 +191,43 @@ public class SpoonacularAPI {
 		}
 		
 		return req;
+	}
+
+	public void weeklyRandomRecipe(HttpServletRequest req, HttpURLConnection conn) throws IOException {
+		int respCode = conn.getResponseCode();
+		if (respCode == HttpURLConnection.HTTP_OK) {		
+		  req.setAttribute("error", "");
+		  StringBuffer response = new StringBuffer();
+		  String line;
+
+		  BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		  while ((line = reader.readLine()) != null) {
+		    response.append(line);
+		  }
+		  reader.close();
+		  
+		  Logger.getLogger("default").info("Response from API: " + response.toString());
+		  
+		  
+		  JSONParser parser = new JSONParser();
+		  JSONObject jsonObject;
+		  try {
+			  jsonObject = (JSONObject) parser.parse(response.toString());
+			  JSONArray jsonArray = (JSONArray) jsonObject.get("recipes");
+			  //extract total recipe info from original json respnse
+			  HashMap<String,Object> result =
+				        new ObjectMapper().readValue(jsonArray.get(0).toString(), HashMap.class);
+
+			  weeklyrecipe = result.get("title").toString();
+	      } catch (ParseException e) {
+			  // TODO Auto-generated catch block
+	    	  e.printStackTrace();
+		  }
+	      
+	    } else {
+		  req.setAttribute("line", conn.getResponseCode() + " " + conn.getResponseMessage());
+          Logger.getLogger("default").info(conn.getResponseCode() + " error " + conn.getResponseMessage());
+	    }
+		
 	}
 }

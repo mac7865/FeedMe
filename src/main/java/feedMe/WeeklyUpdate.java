@@ -1,6 +1,7 @@
 package feedMe;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -33,41 +34,9 @@ import com.google.appengine.api.users.User;
 public class WeeklyUpdate extends HttpServlet {
 	@SuppressWarnings("deprecation")
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-		Logger.getLogger("log").info("sending emails");
-		Query sq = new Query("Subscriber");
-	    List<Entity> subscribers =
-				    datastore.prepare(sq).asList(FetchOptions.Builder.withDefaults());
-	    
-	    Calendar c = Calendar.getInstance();
-	    c.add(Calendar.HOUR, -24);
-	    Date dayStart = c.getTime();
-		Query pq = new Query("Post").setFilter( new FilterPredicate( "date", FilterOperator.GREATER_THAN_OR_EQUAL, dayStart ) );
-	    List<Entity> posts = datastore.prepare(pq).asList(FetchOptions.Builder.withDefaults());
-
-	    Properties props = new Properties();
-	    Session session = Session.getDefaultInstance(props, null);
-		for(Entity subscribe: subscribers) {
-		   String email = (String) subscribe.getProperty("email");
-		   Logger.getLogger("log").info("sending to " + email);
-
-		   String message = "";
-		   try {
-			      MimeMessage msg = new MimeMessage(session);
-
-			      msg.setSubject("FeedMe Weekly Recipe!");
-			      msg.setFrom(new InternetAddress("markcarter25@utexas.edu", "FeedMe Admin"));
-			      msg.addRecipient(Message.RecipientType.TO,
-			                       new InternetAddress(email, "Awesome Blogger"));
-			      message += "Here is your awesome weekly recipe from FeedMe!\n\n";
-			      
-			      msg.setText(message);
-			      Transport.send(msg);
-				  Logger.getLogger("log").info(message + " sent");
-
-			   } catch (Exception e) {
-				  Logger.getLogger("log").info("failed to send an email");
-	           }
-	    }
+		//method that will be called by cron job to update the weekly featured recipe
+		SpoonacularAPI update = SpoonacularAPI.getUniqueInstance();
+		HttpURLConnection conn = SpoonacularAPI.getUniqueInstance().getRandomRecipeConnection();
+		update.weeklyRandomRecipe(req, conn);
 	}
 }
