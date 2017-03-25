@@ -31,9 +31,37 @@
 	                <li>
 	                    <a href="/random">Random Recipe</a>
 	                </li>
+	                <li>
+	                	<%
+			
+					    UserService userService = UserServiceFactory.getUserService();
+				
+					    User user = userService.getCurrentUser();
+				
+					    if (user != null) {
+				
+					      pageContext.setAttribute("user", user);
+				
+						%>
+										
+						<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign out</a>)</p>
+					
+						<%
+					
+						    } else {
+					
+						%>
+						<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
+									
+						<%
+					
+						    }
+				
+						%>
+                	</li>
 	            </ul>
 	      </div>
-		
+			
 		  <div id="page-content-wrapper">  
 		  		<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>
 		  		<h1>View Recipe</h1>

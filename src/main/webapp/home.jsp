@@ -22,6 +22,7 @@
   	</head>
 
 	<body>
+		
 	<div id="wrapper" class="toggled">
     <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -33,44 +34,40 @@
                 <li>
                     <a href="/random">Random Recipe</a>
                 </li>
+                <li>
+                	<%
+		
+				    UserService userService = UserServiceFactory.getUserService();
+			
+				    User user = userService.getCurrentUser();
+			
+				    if (user != null) {
+			
+				      pageContext.setAttribute("user", user);
+			
+					%>
+								
+					<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign out</a>)</p>
+				
+					<%
+				
+					    } else {
+				
+					%>
+					<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
+								
+					<%
+				
+					    }
+			
+					%>
+                </li>
             </ul>
       </div>
 	
 	  <div id="page-content-wrapper">  
 	  		<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>	
-			<%
-		
-			    UserService userService = UserServiceFactory.getUserService();
-		
-			    User user = userService.getCurrentUser();
-		
-			    if (user != null) {
-		
-			      pageContext.setAttribute("user", user);
-		
-			%>
-		
-			<p>Hello! (You can
-		
-			<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out by clicking here.</a>)</p>
-		
-			<%
-		
-			    } else {
-		
-			%>
-		
-			<p>Hello!
-		
-			<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
-		
-			to post on the blog.</p>
-		
-			<%
-		
-			    }
-		
-			%>
+			
 	        <center><h1>Search form goes here</h1></center>
 	  
 	  </div>
