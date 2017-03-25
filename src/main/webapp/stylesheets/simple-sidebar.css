@@ -4,10 +4,6 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
- body {
-    overflow-x: hidden;
- }
-
 /* Toggle Styles */
 
 #wrapper {
@@ -19,18 +15,18 @@
 }
 
 #wrapper.toggled {
-    padding-left: 250px;
+    padding-left: 20%;
 }
 
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 250px;
+    left: 20%;
     width: 0;
     height: 100%;
-    margin-left: -250px;
+    margin-left: -20%;
     overflow-y: auto;
-    background: #000;
+    background: #13b4ff;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -38,7 +34,7 @@
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width: 20%;
 }
 
 #page-content-wrapper {
@@ -49,7 +45,7 @@
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: 250px;
+    margin-right: 20%;
 }
 
 /* Sidebar Styles */
@@ -57,7 +53,7 @@
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 250px;
+    width: 70%;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -71,7 +67,7 @@
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: #000;
 }
 
 .sidebar-nav li a:hover {
@@ -92,7 +88,7 @@
 }
 
 .sidebar-nav > .sidebar-brand a {
-    color: #999999;
+    color: #000;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
@@ -102,7 +98,7 @@
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 250px;
+        padding-left: 20%;
     }
 
     #wrapper.toggled {
@@ -110,7 +106,8 @@
     }
 
     #sidebar-wrapper {
-        width: 250px;
+        width: 20%;
+        margin-top: 3%;
     }
 
     #wrapper.toggled #sidebar-wrapper {

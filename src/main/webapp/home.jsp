@@ -14,6 +14,7 @@
 <html>
 	<head>
     	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/stylesheets/main.css">		    	
 		<link rel="stylesheet" href="/stylesheets/simple-sidebar.css">		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -22,13 +23,17 @@
   	</head>
 
 	<body>
-		
+	<div class="leftborder">
+		<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>			
+	</div>	
+	<div class="rightborder"></div>	
+	
 	<div id="wrapper" class="toggled">
     <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        FeedMe
+                <li class="sidebar">
+                    <a href="/">
+                        Home
                     </a>
                 </li>
                 <li>
@@ -47,7 +52,7 @@
 			
 					%>
 								
-					<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign out</a>)</p>
+					<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign out</a>
 				
 					<%
 				
@@ -63,16 +68,12 @@
 					%>
                 </li>
             </ul>
+        </div>
       </div>
-	
-	  <div id="page-content-wrapper">  
-	  		<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>	
-			
-	        <center><h1>Search form goes here</h1></center>
-	  
+	  	
+	  <div class="content">  
+		 <center><h1>Search form goes here</h1></center>
 	  </div>
-	  </div>
-	  
 	  <!-- Menu Toggle Script -->
 	  <script>
 	    $("#menu-toggle").click(function(e) {

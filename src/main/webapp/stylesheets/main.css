@@ -1,7 +1,36 @@
 body {
    font-family: Verdana, Helvetica, sans-serif;
    background-color: #48D1CC;
-   
+}
+
+.leftborder {
+    position: relative;
+    float: left;
+    width: 20%;
+    background: #13b4ff;
+  	height: 100%;
+}
+
+.leftborder a {
+	margin-top: 2%;
+	margin-left: 2%;
+}
+
+.content {
+	position: absolute;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    background: #fff;
+    height: 100%;
+}
+
+.rightborder {
+    position: relative;
+    float: right;
+    width: 20%;
+    background: #13b4ff;
+  	height: 100%;
 }
 
 	
