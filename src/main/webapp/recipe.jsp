@@ -17,57 +17,19 @@
   		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="/js/jquery.js"></script>
-		<link rel="stylesheet" href="/stylesheets/simple-sidebar.css">				
+		<link rel="stylesheet" href="/stylesheets/simple-sidebar.css">	
+		<link rel="stylesheet" href="/stylesheets/main.css">									
   	</head>
 	<body>
-	<div id="wrapper" class="toggled">
-	    <div id="sidebar-wrapper">
-	            <ul class="sidebar-nav">
-	                <li class="sidebar-brand">
-	                    <a href="#">
-	                        FeedMe
-	                    </a>
-	                </li>
-	                <li>
-	                    <a href="/random">Random Recipe</a>
-	                </li>
-	                <li>
-	                	<%
-			
-					    UserService userService = UserServiceFactory.getUserService();
-				
-					    User user = userService.getCurrentUser();
-				
-					    if (user != null) {
-				
-					      pageContext.setAttribute("user", user);
-				
-						%>
-										
-						<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign out</a>)</p>
-					
-						<%
-					
-						    } else {
-					
-						%>
-						<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
-									
-						<%
-					
-						    }
-				
-						%>
-                	</li>
-	            </ul>
-	      </div>
-			
-		  <div id="page-content-wrapper">  
-		  		<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>
+	  <!--  import sidebars and navbar -->
+	  <%@ include file="/html/navbar-borders.html" %>
+
+	  <div class="content">  
+	 			 <center>
 		  		<h1>View Recipe</h1>
 				<p>Recipe Title: <%=(String)request.getAttribute("recipeTitle")%></p>
 			    <br></br>	
-				<p>Recipe ID: <%=(String)request.getAttribute("recipeId")%></p>
+				<p>Recipe ID: <%=(String)request.getAttribute("recipeId")%></p></center>
 			    <br></br>	
 			    
 			    <blockquote>Recipe Instructions: <ul class="list-group">
@@ -91,14 +53,17 @@
 			    <%  } %>
 			    </ul>	
 			    </blockquote>
-		  </div>
 	  </div>
-	  <!-- Menu Toggle Script -->
+
+	  <!-- set sidebars to proper height -->
 	  <script>
-	    $("#menu-toggle").click(function(e) {
-	        e.preventDefault();
-	        $("#wrapper").toggleClass("toggled");
-	    });
+	  	$(document).ready(function() {
+	  		console.log($( document ).height());
+	  		$('#leftborder').height($( document ).height());
+	  		$('#rightborder').height($( document ).height());	  		
+		});
    	  </script>
+   	  
+   	  
 </body>
 </html>

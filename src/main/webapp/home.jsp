@@ -23,63 +23,11 @@
   	</head>
 
 	<body>
-	<div class="leftborder">
-		<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>			
-	</div>	
-	<div class="rightborder"></div>	
-	
-	<div id="wrapper" class="toggled">
-    <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar">
-                    <a href="/">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="/random">Random Recipe</a>
-                </li>
-                <li>
-                	<%
-		
-				    UserService userService = UserServiceFactory.getUserService();
-			
-				    User user = userService.getCurrentUser();
-			
-				    if (user != null) {
-			
-				      pageContext.setAttribute("user", user);
-			
-					%>
-								
-					<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign out</a>
-				
-					<%
-				
-					    } else {
-				
-					%>
-					<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
-								
-					<%
-				
-					    }
-			
-					%>
-                </li>
-            </ul>
-        </div>
-      </div>
-	  	
+	  <!--  import sidebars and navbar -->
+	  <%@ include file="/html/navbar-borders.html" %>
+
 	  <div class="content">  
-		 <center><h1>Search form goes here</h1></center>
+		 <center><h1>FeedMe</h1></center>
 	  </div>
-	  <!-- Menu Toggle Script -->
-	  <script>
-	    $("#menu-toggle").click(function(e) {
-	        e.preventDefault();
-	        $("#wrapper").toggleClass("toggled");
-	    });
-   	  </script>
 	</body>
 </html>
