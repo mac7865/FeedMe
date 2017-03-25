@@ -28,6 +28,8 @@
 
 	  <div class="content">  
 		 <center><h1>FeedMe</h1></center>
+		 <br><br>
+		 <center><h6>search form here</h6></center>
 	  </div>
 	</body>
 </html>
