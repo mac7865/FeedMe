@@ -34,7 +34,7 @@
                     <a href="/random">Random Recipe</a>
                 </li>
             </ul>
-        </div>
+      </div>
 	
 	  <div id="page-content-wrapper">  
 	  		<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>	
