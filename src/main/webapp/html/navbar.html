@@ -1,7 +1,3 @@
-<div id="leftborder" class="leftborder">
-		<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>			
-	</div>	
-	<div id="rightborder" class="rightborder"></div>
 	<div id="wrapper" class="toggled">
 		<div id="sidebar-wrapper">
 	            <ul class="sidebar-nav">
@@ -26,7 +22,7 @@
 				
 						%>
 										
-						<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign out</a>)</p>
+						<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign out</a></p>
 					
 						<%
 					
@@ -44,12 +40,3 @@
 	            </ul>
 	      </div>
 	  </div>
-	  
-	  <!-- Menu Toggle Script -->
-	  <script>
-	    $("#menu-toggle").click(function(e) {
-	        e.preventDefault();
-	        $("#wrapper").toggleClass("toggled");
-	        console.log("toggled");
-	    });
-   	  </script>

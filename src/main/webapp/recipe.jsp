@@ -15,15 +15,21 @@
 <html>
 	<head>
   		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/stylesheets/bootstrap.css">
 		<script src="/js/jquery.js"></script>
 		<link rel="stylesheet" href="/stylesheets/simple-sidebar.css">	
-		<link rel="stylesheet" href="/stylesheets/main.css">									
+		<link rel="stylesheet" href="/stylesheets/main.css">		
+		<script src="/js/sidebarHeight.js"></script>	
+		<script src="/js/navbar.js"></script>																			
   	</head>
 	<body>
 	  <!--  import sidebars and navbar -->
-	  <%@ include file="/html/navbar-borders.html" %>
-
+	  <%@ include file="/html/navbar.html" %>
+	  
+	  <div id="leftborder" class="leftborder">
+	  	<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>			
+	  </div>
+	  
 	  <div class="content">  
 	 			 <center>
 		  		<h1>View Recipe</h1>
@@ -54,16 +60,10 @@
 			    </ul>	
 			    </blockquote>
 	  </div>
-
-	  <!-- set sidebars to proper height -->
-	  <script>
-	  	$(document).ready(function() {
-	  		console.log($( document ).height());
-	  		$('#leftborder').height($( document ).height());
-	  		$('#rightborder').height($( document ).height());	  		
-		});
-   	  </script>
-   	  
-   	  
+	  
+	  <div id="rightborder" class="rightborder"></div>  
+	  <script type="text/javascript" src="js/navbar.js"></script>
+	  <script type="text/javascript" src="js/sidebarHeight.js"></script>	  
+	   	     	  
 </body>
 </html>

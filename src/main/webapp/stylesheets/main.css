@@ -1,3 +1,7 @@
+html, body {
+	margin: 0px;
+}
+
 body {
    font-family: Verdana, Helvetica, sans-serif;
 }
@@ -18,11 +22,13 @@ body {
 
 .content {
 	position: absolute;
+	text-align: left;
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
     background: #fff;
     height: 100%;
+    margin-bottom: -10px;
 }
 
 .rightborder {

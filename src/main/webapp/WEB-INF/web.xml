@@ -10,7 +10,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>FeedMe</servlet-name>
-    <url-pattern>/FeedMe</url-pattern>
+    <url-pattern>/search</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>RandomRecipes</servlet-name>

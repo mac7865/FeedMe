@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -229,5 +230,34 @@ public class SpoonacularAPI {
           Logger.getLogger("default").info(conn.getResponseCode() + " error " + conn.getResponseMessage());
 	    }
 		
+	}
+	
+	public HttpURLConnection getComplexSearchConnection() throws IOException {
+		//HttpResponse<JsonNode> response = Unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?fillIngredients=false&limitLicense=false&number=5&offset=23&query=chicken&ranking=1")
+		URL url = new URL("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?fillIngredients=false&limitLicense=false&number=5&offset=23&query=chicken&ranking=1");
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setRequestProperty("X-Mashape-Key", "IveATqgidUmshh51JwkUjJa2kGAgp1wfynojsn358NrsAalt2G");
+		conn.setRequestProperty("Accept", "application/json");			
+		return conn;
+	}
+	
+	public HttpServletRequest parseSearchResults(HttpServletRequest req, HttpURLConnection conn) throws IOException {
+		int respCode = conn.getResponseCode();
+		if (respCode == HttpURLConnection.HTTP_OK) {		
+			req.setAttribute("error", "");
+			StringBuffer response = new StringBuffer();
+			String line;
+	
+			BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			while ((line = reader.readLine()) != null) {
+				response.append(line);
+			}
+			reader.close();
+			Logger.getAnonymousLogger().info("Response from API: " + response.toString());
+			Logger.getLogger("default").info("Response from API: " + response.toString());
+		}  else {
+		        Logger.getLogger("default").info(conn.getResponseCode() + " error " + conn.getResponseMessage());
+		}
+		return req;
 	}
 }
