@@ -30,21 +30,18 @@
 	  	<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>			
 	  </div>
 	  
-	  <div class="content">  
-	 			 <center>
+	  <div class="content" style="text-align:center">  
 		  		<h1>View Recipe</h1>
 				<p>Recipe Title: <%=(String)request.getAttribute("recipeTitle")%></p>
-			    <br></br>	
-				<p>Recipe ID: <%=(String)request.getAttribute("recipeId")%></p></center>
 			    <br></br>	
 			    
 			    <blockquote>Recipe Instructions: <ul class="list-group">
 			
 				<% String[] ingredients = (String[])request.getAttribute("recipeIngredients");
-			    	for(int i = 0; i < ingredients.length; i++)
-			    	{
-			    %>    <li class="list-group-item"><%= 	ingredients[i].toString() + "\n"%></li>
-			    <%  } %>
+			    	for(int j = 0; j < ingredients.length; j++)
+			    	{	%> 
+			        <li class="list-group-item"><%= 	ingredients[j].toString() + "\n"%></li>
+			   	<% } %>
 			    </ul>	
 			    </blockquote>
 			    
@@ -56,7 +53,7 @@
 			    	for(int i = 0; i < instructions.length; i++)
 			    	{
 			    %>    <li class="list-group-item"><%= 	instructions[i].toString() + "\n"%></li>
-			    <%  } %>
+			    <% } %>
 			    </ul>	
 			    </blockquote>
 	  </div>

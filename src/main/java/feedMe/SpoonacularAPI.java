@@ -1,6 +1,10 @@
 package feedMe;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -10,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONArray;
@@ -69,47 +74,37 @@ public class SpoonacularAPI {
 		  JSONObject jsonObject;
 		  try {
 			  jsonObject = (JSONObject) parser.parse(response.toString());
-			  Logger.getLogger("default").info(jsonObject.toString()+"\n");
-			  Logger.getLogger("default").info(jsonObject.keySet().toString());
 			  JSONArray jsonArray = (JSONArray) jsonObject.get("recipes");
-			  Logger.getLogger("default").info(jsonArray.size()+" jsonArray size");
-			  Logger.getLogger("default").info(jsonArray.get(0).toString());
 			  //extract total recipe info from original json respnse
 			  HashMap<String,Object> result =
 				        new ObjectMapper().readValue(jsonArray.get(0).toString(), HashMap.class);
-			  Logger.getLogger("default").info(result.toString());
-			  Logger.getLogger("default").info(result.get("id").toString());
-			  Logger.getLogger("default").info(result.get("title").toString());
 			  
 			  //extract ingredients from recipe info
 			  ArrayList<HashMap<String,Object>> list = (ArrayList<HashMap<String,Object>>) result.get("extendedIngredients");
 			  String[] ingredients = new String[list.size()];
-			  Logger.getLogger("default").info(jsonArray.toString() + "\n");
+
 			  for(int i = 0; i < list.size(); i++) {
 				  HashMap<String,Object> temp = list.get(i);
 				  ingredients[i] = temp.get("originalString").toString();
-				  Logger.getLogger("default").info(temp.get("originalString").toString() + "\n");
 			  }
 			  
 			  //extract steps from recipe info, json is a mess for this
 			  list = (ArrayList<HashMap<String,Object>>) result.get("analyzedInstructions");
-			  Logger.getLogger("default").info(list.toString() + "\n");
 			  HashMap<String,Object> temp = list.get(0);
-			  Logger.getLogger("default").info(temp.get("steps").getClass().toString());
 			  ArrayList<HashMap<String,Object>> steps = (ArrayList<HashMap<String, Object>>) temp.get("steps");
 			  String[] instructions = new String[steps.size()];
 			  for(int i = 0; i < steps.size(); i++) {
 				  temp = steps.get(i);
 				  instructions[i] = temp.get("number").toString() + ") " + temp.get("step").toString();
-				  Logger.getLogger("default").info(temp.get("number").toString() + ") " + temp.get("step").toString());
 			  }
 			  
-			  Logger.getLogger("default").info(result.get("extendedIngredients").toString());
-			  Logger.getLogger("default").info(result.get("analyzedInstructions").toString());			  
+			  		  
 			  req.setAttribute("recipeId", result.get("id").toString());
 			  req.setAttribute("recipeTitle", result.get("title").toString());
 			  req.setAttribute("recipeIngredients", ingredients);
 			  req.setAttribute("recipeInstructions", instructions);
+			  Logger.getAnonymousLogger().info(result.get("image").toString());
+			  System.out.println(result.get("image").toString());
 	      } catch (ParseException e) {
 			  // TODO Auto-generated catch block
 	    	  e.printStackTrace();
@@ -155,27 +150,22 @@ public class SpoonacularAPI {
 			  for(int i = 0; i < list.size(); i++) {
 				  HashMap<String,Object> temp = list.get(i);
 				  ingredients[i] = temp.get("originalString").toString();
-				  Logger.getLogger("default").info(temp.get("originalString").toString() + "\n");
 			  }
 			  //extract steps from recipe info, json is a mess for this
 			  list = (ArrayList<HashMap<String,Object>>) jsonObject.get("analyzedInstructions");
-			  Logger.getLogger("default").info(list.toString() + "\n");
 			  HashMap<String,Object> temp = list.get(0);
-			  Logger.getLogger("default").info(temp.get("steps").getClass().toString());
 			  ArrayList<HashMap<String,Object>> steps = (ArrayList<HashMap<String, Object>>) temp.get("steps");
 			  String[] instructions = new String[steps.size()];
 			  for(int i = 0; i < steps.size(); i++) {
 				  temp = steps.get(i);
 				  instructions[i] = temp.get("number").toString() + ") " + temp.get("step").toString();
-				  Logger.getLogger("default").info(temp.get("number").toString() + ") " + temp.get("step").toString());
 			  }
-			  
-			  Logger.getLogger("default").info(jsonObject.get("extendedIngredients").toString());
-			  Logger.getLogger("default").info(jsonObject.get("analyzedInstructions").toString());			  
+			  System.out.println(jsonObject.get("image").toString());
 			  req.setAttribute("recipeId", jsonObject.get("id").toString());
 			  req.setAttribute("recipeTitle", jsonObject.get("title").toString());
 			  req.setAttribute("recipeIngredients", ingredients);
 			  req.setAttribute("recipeInstructions", instructions);
+			  req.setAttribute("image", jsonObject.get("image").toString());			  
 	      } catch (ParseException e) {
 			  // TODO Auto-generated catch block
 	    	  e.printStackTrace();
