@@ -21,9 +21,6 @@ import com.google.appengine.repackaged.org.codehaus.jackson.map.ObjectMapper;
 
 
 public class SpoonacularAPI {
-	public String weeklyrecipe 
-	      = "Raw Mocha Coconut Brownie Tarts [Paleo-friendly]"; // weekly featured recipe every subscriber gets
-	public int weeklyrecipeID = 539193; // weekly featured recipe id
 	
 	private SpoonacularAPI() {}
 	
@@ -150,18 +147,16 @@ public class SpoonacularAPI {
 			  jsonObject = (JSONObject) parser.parse(response.toString());
 			  Logger.getLogger("default").info(jsonObject.toString()+"\n");
 			  Logger.getLogger("default").info(jsonObject.keySet().toString());
-			  Logger.getLogger("default").info(jsonObject.size()+" jsonArray size");
-			  
+
 			  //extract ingredients from recipe info
 			  ArrayList<HashMap<String,Object>> list = (ArrayList<HashMap<String,Object>>) jsonObject.get("extendedIngredients");
+
 			  String[] ingredients = new String[list.size()];
-			  Logger.getLogger("default").info(jsonObject.toString() + "\n");
 			  for(int i = 0; i < list.size(); i++) {
 				  HashMap<String,Object> temp = list.get(i);
 				  ingredients[i] = temp.get("originalString").toString();
 				  Logger.getLogger("default").info(temp.get("originalString").toString() + "\n");
 			  }
-			  
 			  //extract steps from recipe info, json is a mess for this
 			  list = (ArrayList<HashMap<String,Object>>) jsonObject.get("analyzedInstructions");
 			  Logger.getLogger("default").info(list.toString() + "\n");
@@ -216,10 +211,9 @@ public class SpoonacularAPI {
 			  jsonObject = (JSONObject) parser.parse(response.toString());
 			  JSONArray jsonArray = (JSONArray) jsonObject.get("recipes");
 			  //extract total recipe info from original json respnse
-			  HashMap<String,Object> result =
-				        new ObjectMapper().readValue(jsonArray.get(0).toString(), HashMap.class);
-
-			  weeklyrecipe = result.get("title").toString();
+			  HashMap<String,Object> result = new ObjectMapper().readValue(jsonArray.get(0).toString(), HashMap.class);
+			  WeeklyUpdate.weeklyrecipe = result.get("title").toString();
+			  WeeklyUpdate.weeklyrecipeID = (int) result.get("id");
 	      } catch (ParseException e) {
 			  // TODO Auto-generated catch block
 	    	  e.printStackTrace();

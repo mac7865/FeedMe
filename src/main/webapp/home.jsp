@@ -3,13 +3,6 @@
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
-<%@ page import="com.google.appengine.api.datastore.DatastoreServiceFactory" %>
-<%@ page import="com.google.appengine.api.datastore.DatastoreService" %>
-<%@ page import="com.google.appengine.api.datastore.Query" %>
-<%@ page import="com.google.appengine.api.datastore.Entity" %>
-<%@ page import="com.google.appengine.api.datastore.FetchOptions" %>
-<%@ page import="com.google.appengine.api.datastore.Key" %>
-<%@ page import="com.google.appengine.api.datastore.KeyFactory" %>
 
 <html>
 	<head>
@@ -17,7 +10,7 @@
 		<link rel="stylesheet" href="/stylesheets/main.css">		    	
 		<link rel="stylesheet" href="/stylesheets/simple-sidebar.css">		
 		<link rel="stylesheet" href="/stylesheets/bootstrap.css">
-		<link rel="stylesheet" href="/stylesheets/searchForm.css">		
+		<link rel="stylesheet" href="/stylesheets/searchForm.css">	
 		<script src="/js/jquery.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="/js/jquery.min.js"></script>
@@ -61,14 +54,35 @@
 				    <div class="row">
 				    <ul class="list-inline" style="text-align-last: center;margin-top: 3%;">
 			            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-				        <li><button type="submit" class="btn btn-primary">Search</li>		            			            
+				        <li><button type="submit" class="btn btn-primary">FeedMe!</li>		            			            
 			            <li><button type="button" class="btn btn-default next-step">Next</button></li>
 				    </ul>  				    
 				    </div>
 				</form>
 		</div>
 		
-		<div id="rightborder" class="rightborder"></div>
+		<div id="rightborder" class="rightborder">
+			<div id="weeklyUpdate" class="weeklyUpdate">
+			<% 
+				if (user != null) {
+				%>			
+					<p><h3>Weekly Recipe</h3></p>
+					<br></br>
+					<form action="/specific" method="post">					
+						<%= feedMe.WeeklyUpdate.weeklyrecipe %>
+						<br></br>		
+						<input type="hidden" name="recipeID" value=<%= feedMe.WeeklyUpdate.weeklyrecipeID %>>			
+						<button class="btn btn-primary" type="submit">FeedMe this recipe!</button>			
+					</form>
+				<%		
+				} else {
+				%>
+					<p>Not subscribed to the weekly recipe</p>
+				<%		
+					}
+				%>
+			</div>	
+		</div>
 		
 		<!-- !next/prev step control -->
 		<script>

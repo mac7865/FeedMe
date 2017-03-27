@@ -4,6 +4,7 @@
          xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
          version="2.5">
+  
   <servlet>
     <servlet-name>FeedMe</servlet-name>
     <servlet-class>feedMe.FeedMeServlet</servlet-class>
@@ -12,6 +13,7 @@
     <servlet-name>FeedMe</servlet-name>
     <url-pattern>/search</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>RandomRecipes</servlet-name>
     <servlet-class>feedMe.RandomRecipesServlet</servlet-class>
@@ -20,7 +22,36 @@
     <servlet-name>RandomRecipes</servlet-name>
     <url-pattern>/random</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>SpecificRecipe</servlet-name>
+    <servlet-class>feedMe.SpecificRecipeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SpecificRecipe</servlet-name>
+    <url-pattern>/specific</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>WeeklyUpdate</servlet-name>
+    <servlet-class>feedMe.WeeklyUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WeeklyUpdate</servlet-name>
+    <url-pattern>/cron/weeklyupdate</url-pattern>
+  </servlet-mapping>
+  
   <welcome-file-list>
     <welcome-file>home.jsp</welcome-file>
   </welcome-file-list>
+  
+  <security-constraint>
+    <web-resource-collection>
+        <web-resource-name>cron</web-resource-name>
+        <url-pattern>/cron/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+        <role-name>admin</role-name>
+    </auth-constraint>
+  </security-constraint>
 </web-app>

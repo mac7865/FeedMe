@@ -32,6 +32,9 @@ import com.google.appengine.api.users.User;
 
 @SuppressWarnings("serial")
 public class WeeklyUpdate extends HttpServlet {
+	public static String weeklyrecipe = "Raw Mocha Coconut Brownie Tarts [Paleo-friendly]"; // weekly featured recipe every subscriber gets
+	public static int weeklyrecipeID = 539193; // weekly featured recipe id
+
 	@SuppressWarnings("deprecation")
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		//method that will be called by cron job to update the weekly featured recipe

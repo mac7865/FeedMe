@@ -39,5 +39,8 @@ body {
   	height: 100%;
 }
 	
-
+.rightborder > .weeklyUpdate {
+	width: 100%;
+    text-align: center;
+}
 
