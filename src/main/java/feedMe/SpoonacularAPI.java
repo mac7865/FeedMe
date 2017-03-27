@@ -226,9 +226,8 @@ public class SpoonacularAPI {
 		
 	}
 	
-	public HttpURLConnection getComplexSearchConnection() throws IOException {
+	public HttpURLConnection getComplexSearchConnection(URL url) throws IOException {
 		//HttpResponse<JsonNode> response = Unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?fillIngredients=false&limitLicense=false&number=5&offset=23&query=chicken&ranking=1")
-		URL url = new URL("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?fillIngredients=false&limitLicense=false&number=5&offset=23&query=chicken&ranking=1");
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestProperty("X-Mashape-Key", "IveATqgidUmshh51JwkUjJa2kGAgp1wfynojsn358NrsAalt2G");
 		conn.setRequestProperty("Accept", "application/json");			

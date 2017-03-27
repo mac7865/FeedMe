@@ -40,7 +40,12 @@
 				        <div class="col col-sm-8">
 				            <div class="row tab-content">
 				                <div role="tabpanel" class="tab-pane fade active in" id="home">
-				                	basic info
+				                	<div class="form-group row">
+									  <label for="query" class="col-2 col-form-label">*Keywords (only field required): </label>
+									  <div class="col-10">
+									    <input class="form-control" type="text" placeholder="Chicken, Steak, Soup, Tacos..." id="query" name="query">
+									  </div>
+								   </div>
 				                </div>
 				                <div role="tabpanel" class="tab-pane fade" id="profile">
 									nutritional
@@ -60,27 +65,24 @@
 				    </div>
 				</form>
 		</div>
-		
+		<% System.out.println(pageContext.getAttribute("user")); %>
 		<div id="rightborder" class="rightborder">
 			<div id="weeklyUpdate" class="weeklyUpdate">
-			<% 
-				if (user != null) {
-				%>			
-					<p><h3>Weekly Recipe</h3></p>
+				<p><h3>Weekly Recipe</h3></p>
 					<br></br>
+				<% if(pageContext.getAttribute("user") != null) { %>
 					<form action="/specific" method="post">					
 						<%= feedMe.WeeklyUpdate.weeklyrecipe %>
 						<br></br>		
-						<input type="hidden" name="recipeID" value=<%= feedMe.WeeklyUpdate.weeklyrecipeID %>>			
+						<input type="hidden" name="recipeID" value=<%= feedMe.WeeklyUpdate.weeklyrecipeID %>>		
 						<button class="btn btn-primary" type="submit">FeedMe this recipe!</button>			
 					</form>
-				<%		
-				} else {
-				%>
-					<p>Not subscribed to the weekly recipe</p>
-				<%		
-					}
-				%>
+			    <% }
+			     else {
+			    	pageContext.setAttribute("user",null); %>
+				    <p>Not subscribed to the weekly recipe</p> 
+				    
+				 <% } %>
 			</div>	
 		</div>
 		
