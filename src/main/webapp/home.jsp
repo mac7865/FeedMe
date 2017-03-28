@@ -32,14 +32,14 @@
 				 <div class="row">
 						<div class="col col-sm-4">
 				    	    <ul class="nav nav-tabs nav-stacked text-center" role="tablist">
-				                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-				                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-				                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+				                <li role="presentation" class="active"><a href="#basic" aria-controls="Basic" role="tab" data-toggle="tab">Basic</a></li>
+				                <li role="presentation"><a href="#nutrition" aria-controls="Nutritional" role="tab" data-toggle="tab">Nutritional</a></li>
+				                <li role="presentation"><a href="#dietary" aria-controls="Dietary" role="tab" data-toggle="tab">Dietary</a></li>
 				            </ul>
 						</div>
 				        <div class="col col-sm-8">
 				            <div class="row tab-content">
-				                <div role="tabpanel" class="tab-pane fade active in" id="home">
+				                <div role="tabpanel" class="tab-pane fade active in" id="basic">
 				                	<div class="form-group row">
 									  <label for="query" class="col-2 col-form-label">*Keywords (only field required): </label>
 									  <div class="col-10">
@@ -47,11 +47,11 @@
 									  </div>
 								   </div>
 				                </div>
-				                <div role="tabpanel" class="tab-pane fade" id="profile">
+				                <div role="tabpanel" class="tab-pane fade" id="nutrition">
 									nutritional
 				                </div>
-				                <div role="tabpanel" class="tab-pane fade" id="messages">
-									ingredients
+				                <div role="tabpanel" class="tab-pane fade" id="dietary">
+									Dietary
 				                </div>
 				            </div>
 						</div>

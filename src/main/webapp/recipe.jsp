@@ -31,8 +31,7 @@
 	  </div>
 	  
 	  <div class="content" style="text-align:center">  
-		  		<h1>View Recipe</h1>
-				<p>Recipe Title: <%=(String)request.getAttribute("recipeTitle")%></p>
+		  		<h1><%=(String)request.getAttribute("recipeTitle")%></h1>
 			    <br></br>	
 			    
 			    <blockquote>Recipe Instructions: <ul class="list-group">
