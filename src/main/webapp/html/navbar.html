@@ -22,14 +22,14 @@
 				
 						%>
 										
-						<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign out</a></p>
+						<a href="<%= userService.createLogoutURL("/home.jsp") %>">Sign out</a></p>
 					
 						<%
 					
 						    } else {
 					
 						%>
-						<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
+						<a href="<%= userService.createLoginURL("/home.jsp") %>">Sign in</a>
 									
 						<%
 					

@@ -15,11 +15,11 @@
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>RandomRecipes</servlet-name>
+    <servlet-name>RandomRecipe</servlet-name>
     <servlet-class>feedMe.RandomRecipesServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>RandomRecipes</servlet-name>
+    <servlet-name>RandomRecipe</servlet-name>
     <url-pattern>/random</url-pattern>
   </servlet-mapping>
   
@@ -29,7 +29,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>SpecificRecipe</servlet-name>
-    <url-pattern>/specific</url-pattern>
+    <url-pattern>/recipe/*</url-pattern>
   </servlet-mapping>
   
   <servlet>

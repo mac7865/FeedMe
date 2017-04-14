@@ -235,9 +235,64 @@ public class SpoonacularAPI {
 			while ((line = reader.readLine()) != null) {
 				response.append(line);
 			}
+			
 			reader.close();
 			Logger.getAnonymousLogger().info("Response from API: " + response.toString());
-			Logger.getLogger("default").info("Response from API: " + response.toString());
+			ArrayList<Long> recipeIDs = new ArrayList<Long>();
+			
+			JSONParser parser = new JSONParser();
+			JSONObject jsonObject;
+			try {
+				jsonObject = (JSONObject) parser.parse(response.toString());
+				Logger.getLogger("default").info(jsonObject.toString()+"\n");
+			    Logger.getLogger("default").info(jsonObject.keySet().toString());
+
+				//extract recipeIDs from list of results
+				JSONArray list = (JSONArray) jsonObject.get("results");
+
+				for(int i = 0; i < list.size(); i++) {
+					jsonObject = (JSONObject) list.get(i);
+					recipeIDs.add((Long) jsonObject.get("id"));
+				}
+				System.out.println(recipeIDs.toString());
+				
+				//request summaries for each recipe that was returned
+				ArrayList<String> recipes = new ArrayList<String>();
+				ArrayList<String> summaries = new ArrayList<String>();
+				for(Long recipeID : recipeIDs) {
+					//send request to API for specific recipe based on recipe id to get recipe summary
+					URL url = new URL("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + recipeID + "/summary");
+				    HttpURLConnection conn2 = (HttpURLConnection) url.openConnection();				
+					conn2.setRequestProperty("X-Mashape-Key", "IveATqgidUmshh51JwkUjJa2kGAgp1wfynojsn358NrsAalt2G");
+					conn2.setRequestProperty("Accept", "application/json");
+					respCode = conn2.getResponseCode();
+					if (respCode == HttpURLConnection.HTTP_OK) {		
+						req.setAttribute("error", "");
+						response = new StringBuffer();
+						reader = new BufferedReader(new InputStreamReader(conn2.getInputStream()));
+						while ((line = reader.readLine()) != null) {
+							response.append(line);
+						}
+						
+						reader.close();
+						Logger.getAnonymousLogger().info("Response from API: " + response.toString());
+						jsonObject = (JSONObject) parser.parse(response.toString());
+						recipes.add((String)jsonObject.get("title"));
+						summaries.add((String)jsonObject.get("summary"));
+					} else {
+						Logger.getLogger("default").info(conn.getResponseCode() + " error " + conn.getResponseMessage());
+					}
+				}
+				System.out.println(recipes.toString());
+				System.out.println(summaries.toString());
+				System.out.println(recipeIDs.toString());
+				req.setAttribute("recipes", recipes);
+				req.setAttribute("summaries", summaries);
+				req.setAttribute("recipeIDs", recipeIDs);
+		      } catch (ParseException e) {
+				  // TODO Auto-generated catch block
+		    	  e.printStackTrace();
+			  }
 		}  else {
 		        Logger.getLogger("default").info(conn.getResponseCode() + " error " + conn.getResponseMessage());
 		}

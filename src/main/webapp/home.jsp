@@ -65,7 +65,7 @@
 				    </div>
 				</form>
 		</div>
-		<% System.out.println(pageContext.getAttribute("user")); %>
+
 		<div id="rightborder" class="rightborder">
 			<div id="weeklyUpdate" class="weeklyUpdate">
 				<p><h3>Weekly Recipe</h3></p>
