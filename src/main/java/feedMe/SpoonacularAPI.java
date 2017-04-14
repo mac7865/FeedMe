@@ -153,12 +153,15 @@ public class SpoonacularAPI {
 			  }
 			  //extract steps from recipe info, json is a mess for this
 			  list = (ArrayList<HashMap<String,Object>>) jsonObject.get("analyzedInstructions");
-			  HashMap<String,Object> temp = list.get(0);
-			  ArrayList<HashMap<String,Object>> steps = (ArrayList<HashMap<String, Object>>) temp.get("steps");
-			  String[] instructions = new String[steps.size()];
-			  for(int i = 0; i < steps.size(); i++) {
-				  temp = steps.get(i);
-				  instructions[i] = temp.get("number").toString() + ") " + temp.get("step").toString();
+			  String[] instructions = new String[0];
+			  if(list.size() > 0) {
+				  HashMap<String,Object> temp = list.get(0);
+				  ArrayList<HashMap<String,Object>> steps = (ArrayList<HashMap<String, Object>>) temp.get("steps");
+				  instructions = new String[steps.size()];
+				  for(int i = 0; i < steps.size(); i++) {
+					  temp = steps.get(i);
+					  instructions[i] = temp.get("number").toString() + ") " + temp.get("step").toString();
+				  }
 			  }
 			  System.out.println(jsonObject.get("image").toString());
 			  req.setAttribute("recipeId", jsonObject.get("id").toString());
@@ -286,6 +289,30 @@ public class SpoonacularAPI {
 				System.out.println(recipes.toString());
 				System.out.println(summaries.toString());
 				System.out.println(recipeIDs.toString());
+				ArrayList<String> temp = new ArrayList<String>();
+				for(String s : summaries) {
+					//redirect spoonacular hrefs to our site
+					String newS = "";
+					for(int i = 0; i < s.length(); i++) {
+						if(s.charAt(i) == '\"') {
+							int j = s.indexOf('\"', i+1);
+							int x = j;
+							j--;
+							while(s.charAt(j) <= '9' && s.charAt(j) >= '0') {
+								j--;
+							}
+							j++;
+							System.out.println(s.substring(j, x));
+							newS += "\"/recipe/" + s.substring(j, x+2);
+							i = x+1;
+						} else {
+							newS += s.charAt(i);
+						}
+					}
+					temp.add(newS);
+				}
+				summaries = temp;
+				System.out.println(summaries.toString());
 				req.setAttribute("recipes", recipes);
 				req.setAttribute("summaries", summaries);
 				req.setAttribute("recipeIDs", recipeIDs);
