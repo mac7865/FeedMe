@@ -30,8 +30,9 @@ public class FeedMeServlet extends HttpServlet {
 		//first build string, base string in StringBuilder then add paramaters
 		//string must be built in proper order, refer to Spoonacular API
 		
-		StringBuilder urlBuilder = new StringBuilder("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?instructionsRequired=true&limitLicense=false&number=3&offset="+offset+"&query=chicken&ranking=1");
-		
+		StringBuilder urlBuilder = new StringBuilder("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?instructionsRequired=true"+"&limitLicense=false&number=3&offset="+offset+"&ranking=1");
+		urlBuilder.append("&query="+req.getParameter("query"));
+		System.out.println(req.getParameter("query"));
 		URL url = new URL(urlBuilder.toString());
 		System.out.println(url.toString());
       	HttpURLConnection conn = SpoonacularAPI.getUniqueInstance().getComplexSearchConnection(url);

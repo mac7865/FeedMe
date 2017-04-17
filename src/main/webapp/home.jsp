@@ -30,31 +30,30 @@
 			<br><br>
 	  		<form action="/search" method="post">
 				 <div class="row">
-						<div class="col col-sm-4">
-				    	    <ul class="nav nav-tabs nav-stacked text-center" role="tablist">
-				                <li role="presentation" class="active"><a href="#basic" aria-controls="Basic" role="tab" data-toggle="tab">Basic</a></li>
-				                <li role="presentation"><a href="#nutrition" aria-controls="Nutritional" role="tab" data-toggle="tab">Nutritional</a></li>
-				                <li role="presentation"><a href="#dietary" aria-controls="Dietary" role="tab" data-toggle="tab">Dietary</a></li>
-				            </ul>
-						</div>
-				        <div class="col col-sm-8">
-				            <div class="row tab-content">
-				                <div role="tabpanel" class="tab-pane fade active in" id="basic">
-				                	<div class="form-group row">
-									  <label for="query" class="col-2 col-form-label">*Keywords (only field required): </label>
-									  <div class="col-10">
-									    <input class="form-control" type="text" placeholder="Chicken, Steak, Soup, Tacos..." id="query" name="query">
-									  </div>
-								   </div>
+						<div class="col-md-12">
+				            <div class="panel with-nav-tabs panel-primary">
+				                <div class="panel-heading">
+				                        <ul class="nav nav-tabs">
+				                            <li class="active"><a href="#basic" data-toggle="tab">Basic</a></li>
+				                            <li><a href="#nutrition" data-toggle="tab">Nutrition</a></li>
+				                            <li><a href="#dietary" data-toggle="tab">Dietary</a></li>
+	
+				                        </ul>
 				                </div>
-				                <div role="tabpanel" class="tab-pane fade" id="nutrition">
-									nutritional
-				                </div>
-				                <div role="tabpanel" class="tab-pane fade" id="dietary">
-									Dietary
+				                <div class="panel-body">
+				                    <div class="tab-content">
+				                        <div class="tab-pane fade in active" id="basic">
+				                        	<label for="query" class="col-2 col-form-label">*Keywords (only field required): </label>
+									 		<div class="col-10">
+									   		 <input class="form-control" type="text" placeholder="Chicken, Steak, Soup, Tacos..." id="query" name="query">
+									  		</div>
+				                        </div>
+				                        <div class="tab-pane fade" id="nutrition">Nutrition</div>
+				                        <div class="tab-pane fade" id="dietary">Dietary</div>
+				                    </div>
 				                </div>
 				            </div>
-						</div>
+				        </div>
 					</div>
 				    <div class="row">
 				    <ul class="list-inline" style="text-align-last: center;margin-top: 3%;">
