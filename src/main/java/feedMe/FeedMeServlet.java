@@ -33,9 +33,18 @@ public class FeedMeServlet extends HttpServlet {
 		
 		StringBuilder urlBuilder = new StringBuilder("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?instructionsRequired=true"+"&limitLicense=false&number=3&offset="+offset+"&ranking=1");
 		urlBuilder.append("&query="+(String)req.getParameter("query").replace(' ', '+'));
+		
+		if(!req.getParameter("maxFat").equals("")) {
+			try{
+				Integer.parseInt(req.getParameter("maxFat"));
+				urlBuilder.append("&maxFat="+(String)req.getParameter("maxFat"));
+			} catch (NumberFormatException e) {
+				// not an integer!
+			}
+		}
+		
+		Logger.getAnonymousLogger().info(urlBuilder.toString());
 		URL url = new URL(urlBuilder.toString());
-		System.out.println(url.toString());
-		Logger.getAnonymousLogger().info(url.toString());
       	HttpURLConnection conn = SpoonacularAPI.getUniqueInstance().getComplexSearchConnection(url);
       	req = SpoonacularAPI.getUniqueInstance().parseSearchResults(req, conn); 
       	req.getRequestDispatcher("/search.jsp").forward(req, resp);

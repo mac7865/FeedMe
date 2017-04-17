@@ -247,8 +247,6 @@ public class SpoonacularAPI {
 			JSONObject jsonObject;
 			try {
 				jsonObject = (JSONObject) parser.parse(response.toString());
-				Logger.getLogger("default").info(jsonObject.toString()+"\n");
-			    Logger.getLogger("default").info(jsonObject.keySet().toString());
 
 				//extract recipeIDs from list of results
 				JSONArray list = (JSONArray) jsonObject.get("results");
@@ -257,7 +255,6 @@ public class SpoonacularAPI {
 					jsonObject = (JSONObject) list.get(i);
 					recipeIDs.add((Long) jsonObject.get("id"));
 				}
-				System.out.println(recipeIDs.toString());
 				
 				//request summaries for each recipe that was returned
 				ArrayList<String> recipes = new ArrayList<String>();
@@ -286,9 +283,7 @@ public class SpoonacularAPI {
 						Logger.getLogger("default").info(conn.getResponseCode() + " error " + conn.getResponseMessage());
 					}
 				}
-				System.out.println(recipes.toString());
-				System.out.println(summaries.toString());
-				System.out.println(recipeIDs.toString());
+
 				ArrayList<String> temp = new ArrayList<String>();
 				for(String s : summaries) {
 					//redirect spoonacular hrefs to our site
@@ -302,7 +297,6 @@ public class SpoonacularAPI {
 								j--;
 							}
 							j++;
-							System.out.println(s.substring(j, x));
 							newS += "\"/recipe/" + s.substring(j, x+2);
 							i = x+1;
 						} else {
@@ -312,7 +306,6 @@ public class SpoonacularAPI {
 					temp.add(newS);
 				}
 				summaries = temp;
-				System.out.println(summaries.toString());
 				req.setAttribute("recipes", recipes);
 				req.setAttribute("summaries", summaries);
 				req.setAttribute("recipeIDs", recipeIDs);
