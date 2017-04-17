@@ -15,7 +15,6 @@
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="/js/jquery.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>	  
-		<script src="/js/sidebarHeight.js"></script>	  		
   	</head>
 
 	<body>
@@ -28,15 +27,15 @@
 	  <div class="content">  
 			<center><h1>FeedMe</h1></center>
 			<br><br>
-	  		<form action="/search" method="post">
+	  		<form action="/search" method="post" name="searchForm" id="searchForm">
 				 <div class="row">
 						<div class="col-md-12">
 				            <div class="panel with-nav-tabs panel-primary">
 				                <div class="panel-heading">
 				                        <ul class="nav nav-tabs">
-				                            <li class="active"><a href="#basic" data-toggle="tab">Basic</a></li>
-				                            <li><a href="#nutrition" data-toggle="tab">Nutrition</a></li>
-				                            <li><a href="#dietary" data-toggle="tab">Dietary</a></li>
+				                            <li class="active"><a href="#basic" data-toggle="tab"id="basicTab">Basic</a></li>
+				                            <li><a href="#nutrition" data-toggle="tab" id="nutritionTab">Nutrition</a></li>
+				                            <li><a href="#dietary" data-toggle="tab" id="dietaryTab">Dietary</a></li>
 	
 				                        </ul>
 				                </div>
@@ -48,7 +47,37 @@
 									   		 <input class="form-control" type="text" placeholder="Chicken, Steak, Soup, Tacos..." id="query" name="query">
 									  		</div>
 				                        </div>
-				                        <div class="tab-pane fade" id="nutrition">Nutrition</div>
+				                        <div class="tab-pane fade" id="nutrition">
+				                        	Nutrition
+				                        	<br><br>
+				                        	<div><p>The maximum number of calories the recipe can have.</p><span class="type">NUMBER</span></div>
+										    <div><input type="text" placeholder="optional" class="form-control" id="maxCalories" name="maxCalories">
+										    </div>
+											<div><p>The maximum number of grams of carbohydrates the recipe can have.</p><span class="type">NUMBER</span></div>
+											    <div><input type="text" placeholder="optional" class="form-control" id="maxCarbs" name="maxCarbs">
+											    </div>
+											<div><p>The maximum number of grams of fat the recipe can have.</p>
+											<span class="type">NUMBER</span></div>
+											    <div><input type="text" placeholder="optional" class="form-control" id="maxFat" name="maxFat">
+											    </div>
+											<div><p>The maximum number of grams of protein the recipe can have.</p>
+												<span class="type">NUMBER</span></div>
+											    <div><input type="text" placeholder="optional" class="form-control" id="maxProtein" name="maxProtein">
+											    </div>
+											<div><p>The minimum number of calories the recipe must have.</p><span class="type">NUMBER</span></div>
+											    <div><input type="text" placeholder="optional" class="form-control" id="minCalories" name="minCalories">
+											    </div>
+											<div><p>The minimum number of grams of carbohydrates the recipe must have.</p><span class="type">NUMBER</span></div>
+											    <div><input type="text" placeholder="optional" class="form-control" id="minCarbs" name="minCarbs">
+											    </div>
+											<div><p>The minimum number of grams of fat the recipe must have.</p>
+												<span class="type">NUMBER</span></div>
+											    <div><input type="text" placeholder="optional" class="form-control" id="minFat" name="minFat">
+											    </div>
+											<div><p>The minimum number of grams of protein the recipe must have.</p><span class="type">NUMBER</span></div>
+											    <div><input type="text" placeholder="optional" class="form-control" id="minProtein" name="minProtein">
+											    </div>
+				                        </div>
 				                        <div class="tab-pane fade" id="dietary">Dietary</div>
 				                    </div>
 				                </div>
@@ -108,7 +137,6 @@
 		  }       
 	  </script>  
 	  <script type="text/javascript" src="js/navbar.js"></script>
-	  <script type="text/javascript" src="	"></script>	  
 	</body>
 	
 		  
