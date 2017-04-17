@@ -34,10 +34,73 @@ public class FeedMeServlet extends HttpServlet {
 		StringBuilder urlBuilder = new StringBuilder("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?instructionsRequired=true"+"&limitLicense=false&number=3&offset="+offset+"&ranking=1");
 		urlBuilder.append("&query="+(String)req.getParameter("query").replace(' ', '+'));
 		
+		if(!req.getParameter("maxCalories").equals("")) {
+			try{
+				Integer.parseInt(req.getParameter("maxFat"));
+				urlBuilder.append("&maxCalories="+(String)req.getParameter("maxCalories"));
+			} catch (NumberFormatException e) {
+				// not an integer!
+			}
+		}
+		
+		if(!req.getParameter("maxCarbs").equals("")) {
+			try{
+				Integer.parseInt(req.getParameter("maxFat"));
+				urlBuilder.append("&maxCarbs="+(String)req.getParameter("maxCarbs"));
+			} catch (NumberFormatException e) {
+				// not an integer!
+			}
+		}
+		
 		if(!req.getParameter("maxFat").equals("")) {
 			try{
 				Integer.parseInt(req.getParameter("maxFat"));
 				urlBuilder.append("&maxFat="+(String)req.getParameter("maxFat"));
+			} catch (NumberFormatException e) {
+				// not an integer!
+			}
+		}
+		
+		if(!req.getParameter("maxProtein").equals("")) {
+			try{
+				Integer.parseInt(req.getParameter("maxFat"));
+				urlBuilder.append("&maxProtein="+(String)req.getParameter("maxProtein"));
+			} catch (NumberFormatException e) {
+				// not an integer!
+			}
+		}
+
+		if(!req.getParameter("minCalories").equals("")) {
+			try{
+				Integer.parseInt(req.getParameter("maxFat"));
+				urlBuilder.append("&minCalories="+(String)req.getParameter("minCalories"));
+			} catch (NumberFormatException e) {
+				// not an integer!
+			}
+		}
+		
+		if(!req.getParameter("minCarbs").equals("")) {
+			try{
+				Integer.parseInt(req.getParameter("maxFat"));
+				urlBuilder.append("&minCarbs="+(String)req.getParameter("minCarbs"));
+			} catch (NumberFormatException e) {
+				// not an integer!
+			}
+		}
+		
+		if(!req.getParameter("minFat").equals("")) {
+			try{
+				Integer.parseInt(req.getParameter("maxFat"));
+				urlBuilder.append("&minFat="+(String)req.getParameter("minFat"));
+			} catch (NumberFormatException e) {
+				// not an integer!
+			}
+		}
+		
+		if(!req.getParameter("minProtein").equals("")) {
+			try{
+				Integer.parseInt(req.getParameter("maxFat"));
+				urlBuilder.append("&minProtein="+(String)req.getParameter("minProtein"));
 			} catch (NumberFormatException e) {
 				// not an integer!
 			}
