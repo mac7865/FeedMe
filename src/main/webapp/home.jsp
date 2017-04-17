@@ -50,32 +50,32 @@
 				                        <div class="tab-pane fade" id="nutrition">
 				                        	Nutrition
 				                        	<br><br>
-				                        	<div><p>The maximum number of calories the recipe can have.</p><span class="type">NUMBER</span></div>
-										    <div><input type="text" placeholder="optional" class="form-control" id="maxCalories" name="maxCalories">
+				                        	<div><p>The maximum number of calories the recipe can have.</p></div>
+										    <div><input type="text" class="form-control" id="maxCalories" name="maxCalories">
 										    </div>
-											<div><p>The maximum number of grams of carbohydrates the recipe can have.</p><span class="type">NUMBER</span></div>
-											    <div><input type="text" placeholder="optional" class="form-control" id="maxCarbs" name="maxCarbs">
+											<div><p>The maximum number of grams of carbohydrates the recipe can have.</p></div>
+											    <div><input type="text" class="form-control" id="maxCarbs" name="maxCarbs">
 											    </div>
 											<div><p>The maximum number of grams of fat the recipe can have.</p>
-											<span class="type">NUMBER</span></div>
-											    <div><input type="text" placeholder="optional" class="form-control" id="maxFat" name="maxFat">
+											</div>
+											    <div><input type="text" class="form-control" id="maxFat" name="maxFat">
 											    </div>
 											<div><p>The maximum number of grams of protein the recipe can have.</p>
-												<span class="type">NUMBER</span></div>
-											    <div><input type="text" placeholder="optional" class="form-control" id="maxProtein" name="maxProtein">
+												</div>
+											    <div><input type="text" class="form-control" id="maxProtein" name="maxProtein">
 											    </div>
-											<div><p>The minimum number of calories the recipe must have.</p><span class="type">NUMBER</span></div>
-											    <div><input type="text" placeholder="optional" class="form-control" id="minCalories" name="minCalories">
+											<div><p>The minimum number of calories the recipe must have.</p></div>
+											    <div><input type="text" class="form-control" id="minCalories" name="minCalories">
 											    </div>
-											<div><p>The minimum number of grams of carbohydrates the recipe must have.</p><span class="type">NUMBER</span></div>
-											    <div><input type="text" placeholder="optional" class="form-control" id="minCarbs" name="minCarbs">
+											<div><p>The minimum number of grams of carbohydrates the recipe must have.</p></div>
+											    <div><input type="text" class="form-control" id="minCarbs" name="minCarbs">
 											    </div>
 											<div><p>The minimum number of grams of fat the recipe must have.</p>
-												<span class="type">NUMBER</span></div>
-											    <div><input type="text" placeholder="optional" class="form-control" id="minFat" name="minFat">
+												</div>
+											    <div><input type="text" class="form-control" id="minFat" name="minFat">
 											    </div>
-											<div><p>The minimum number of grams of protein the recipe must have.</p><span class="type">NUMBER</span></div>
-											    <div><input type="text" placeholder="optional" class="form-control" id="minProtein" name="minProtein">
+											<div><p>The minimum number of grams of protein the recipe must have.</p></div>
+											    <div><input type="text" class="form-control" id="minProtein" name="minProtein">
 											    </div>
 				                        </div>
 				                        <div class="tab-pane fade" id="dietary">Dietary</div>
