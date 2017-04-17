@@ -70,12 +70,9 @@
 				<p><h3>Weekly Recipe</h3></p>
 					<br></br>
 				<% if(pageContext.getAttribute("user") != null) { %>
-					<form action="/specific" method="post">					
-						<%= feedMe.WeeklyUpdate.weeklyrecipe %>
-						<br></br>		
-						<input type="hidden" name="recipeID" value=<%= feedMe.WeeklyUpdate.weeklyrecipeID %>>		
-						<button class="btn btn-primary" type="submit">FeedMe this recipe!</button>			
-					</form>
+					<%= feedMe.WeeklyUpdate.weeklyrecipe %>
+					<br></br>
+					<a href="/recipe/<%= feedMe.WeeklyUpdate.weeklyrecipeID %>" class="btn btn-primary">FeedMe this recipe!</a>
 			    <% }
 			     else {
 			    	pageContext.setAttribute("user",null); %>

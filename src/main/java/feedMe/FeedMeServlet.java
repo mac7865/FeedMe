@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -31,10 +32,10 @@ public class FeedMeServlet extends HttpServlet {
 		//string must be built in proper order, refer to Spoonacular API
 		
 		StringBuilder urlBuilder = new StringBuilder("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?instructionsRequired=true"+"&limitLicense=false&number=3&offset="+offset+"&ranking=1");
-		urlBuilder.append("&query="+req.getParameter("query"));
-		System.out.println(req.getParameter("query"));
+		urlBuilder.append("&query="+(String)req.getParameter("query").replace(' ', '+'));
 		URL url = new URL(urlBuilder.toString());
 		System.out.println(url.toString());
+		Logger.getAnonymousLogger().info(url.toString());
       	HttpURLConnection conn = SpoonacularAPI.getUniqueInstance().getComplexSearchConnection(url);
       	req = SpoonacularAPI.getUniqueInstance().parseSearchResults(req, conn); 
       	req.getRequestDispatcher("/search.jsp").forward(req, resp);

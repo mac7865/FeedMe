@@ -61,7 +61,23 @@
 			    </blockquote>
 	  </div>
 	  
-	  <div id="rightborder" class="rightborder"></div>  
+	  <div id="rightborder" class="rightborder">
+			<div id="weeklyUpdate" class="weeklyUpdate">
+				<p><h3>Weekly Recipe</h3></p>
+					<br></br>
+				<% if(pageContext.getAttribute("user") != null) { %>
+					<%= feedMe.WeeklyUpdate.weeklyrecipe %>
+					<br></br>
+					<a href="/recipe/<%= feedMe.WeeklyUpdate.weeklyrecipeID %>" class="btn btn-primary">FeedMe this recipe!</a>
+			    <% }
+			     else {
+			    	pageContext.setAttribute("user",null); %>
+				    <p>Not subscribed to the weekly recipe</p> 
+				    
+				 <% } %>
+			</div>	
+		</div>
+		
 	  <%if(request.getRequestURI().contains("recipe")) { %>
 	  	<script type="text/javascript" src="../js/navbar.js"></script>
 	  <% } else { %>
