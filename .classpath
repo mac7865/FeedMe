@@ -28,5 +28,9 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/Mark/workspace/FeedMe/src/main/webapp/WEB-INF/lib/appengine-endpoints-1.8.4.jar"/>
+	<classpathentry kind="lib" path="/Users/Mark/workspace/FeedMe/src/main/webapp/WEB-INF/lib/jackson-annotations-2.8.0.jar"/>
+	<classpathentry kind="lib" path="/Users/Mark/workspace/FeedMe/src/main/webapp/WEB-INF/lib/jackson-core-2.8.1.jar"/>
+	<classpathentry kind="lib" path="/Users/Mark/workspace/FeedMe/src/main/webapp/WEB-INF/lib/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
