@@ -8,11 +8,6 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="com.google.cloud.tools.eclipse.appengine.libraries/objectify">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
@@ -28,9 +23,11 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/Mark/workspace/FeedMe/src/main/webapp/WEB-INF/lib/appengine-endpoints-1.8.4.jar"/>
-	<classpathentry kind="lib" path="/Users/Mark/workspace/FeedMe/src/main/webapp/WEB-INF/lib/jackson-annotations-2.8.0.jar"/>
-	<classpathentry kind="lib" path="/Users/Mark/workspace/FeedMe/src/main/webapp/WEB-INF/lib/jackson-core-2.8.1.jar"/>
-	<classpathentry kind="lib" path="/Users/Mark/workspace/FeedMe/src/main/webapp/WEB-INF/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/appengine-endpoints-1.8.4.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-annotations-2.8.0.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-core-2.8.1.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/easymock-3.4.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/objenesis-2.5.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
