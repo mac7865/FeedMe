@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="width:100%;height:100%;">
 
 <head>
     <meta charset="utf-8">
@@ -8,21 +8,20 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Button1.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/untitled.css">
 </head>
 
-<body style="background-image:url(&quot;assets/img/cooking.png&quot;);width:1248px;height:700px;">
-    <div style="color:green;">
-        <nav class="navbar navbar-default navigation-clean-button" style="background-color:rgb(6,0,6);">
+<body style="background-image:url(&quot;assets/img/food-drink-kitchen-cutting-board.jpg&quot;);width:100%;height:100%;">
+    <div style="width:100%;height:10%;">
+        <nav class="navbar navbar-default navigation-clean-button" style="background-color:rgb(37,35,35);width:100%;height:100%;">
             <div class="container">
-                <div class="navbar-header"><a class="navbar-brand navbar-link" href="#" style="color:rgb(141,144,145);">Feed Me</a>
+                <div class="navbar-header"><a class="navbar-brand navbar-link" href="#" style="color:rgb(142,142,142);padding-top:16%;padding-bottom:16%;">Feed Me</a>
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 </div>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav">
-                        <li class="active" role="presentation" style="color:rgb(141,141,141);"><a href="#">First Item</a></li>
-                        <li role="presentation"><a href="#" style="color:rgb(141,141,141);">Second Item</a></li>
-                        <li class="dropdown" id="drop_drop"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color:rgb(141,141,141);">Dropdown <span class="caret"></span></a>
+                        <li class="active" role="presentation"><a href="#" style="color:rgb(142,142,142);padding-top:16%;">Search </a></li>
+                        <li role="presentation"><a href="#" style="color:#8e8e8e;padding-top:16%;">Random </a></li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color:#8e8e8e;padding-top:16%;">Stored <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li role="presentation"><a href="#">First Item</a></li>
                                 <li role="presentation"><a href="#">Second Item</a></li>
@@ -30,25 +29,25 @@
                             </ul>
                         </li>
                     </ul>
-                    <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="#" style="color:rgb(141,141,141);">Log In</a> <a class="btn btn-default action-button" role="button" href="#" id="button_Signup">Sign Up</a></p>
+                    <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="#" style="color:#8e8e8e;">Log In</a> <a class="btn btn-default action-button" role="button" href="#" id="b_sign">Sign Up</a></p>
                 </div>
             </div>
         </nav>
     </div>
     <div class="container" style="width:900;margin:30;background-color:White;">
         <div style="background-color:white;">
-            <ul class="nav nav-tabs">
-                <li><a href="#tab-1" role="tab" data-toggle="tab" style="background-color:white;">Allergies </a></li>
+            <ul class="nav nav-tabs" style="padding-right:%;padding-left:0%;width:100%;height:8%;">
+                <li><a href="#tab-1" role="tab" data-toggle="tab" style="background-color:white;width:100%;">Allergies </a></li>
                 <li><a href="#tab-2" role="tab" data-toggle="tab">Nutrition </a></li>
                 <li class="active"><a href="#tab-3" role="tab" data-toggle="tab" style="background-color:white;">Preference </a></li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane" role="tabpanel" id="tab-1">
                     <div class="row" style="margin:0;">
-                        <div class="col-md-12" style="background-color:white;">
+                        <div class="col-md-12" style="background-color:white;width:100%;height:20%;">
                             <h1><strong>What are your Allergies</strong>?</h1></div>
                     </div>
-                    <div class="col-md-5 col-md-offset-0" style="background-color:white;">
+                    <div class="col-md-5 col-md-offset-0" style="background-color:white;width:40%;">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" id="c_Dairy">Dairy</label>
@@ -74,7 +73,7 @@
                                 <input type="checkbox" id="c_Sesame">Sesame</label>
                         </div>
                     </div>
-                    <div class="col-md-4" style="background-color:White;height:165px;">
+                    <div class="col-md-4" style="background-color:White;height:165px;width:40%;">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" id="c_Seafood">Seafood</label>
@@ -99,50 +98,50 @@
                 </div>
                 <div class="tab-pane" role="tabpanel" id="tab-2" style="background-color:white;">
                     <h1 style="background-color:white;">Nutrition: </h1>
-                    <div class="dropdown" id="drop_DIet">
-                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dietary Plan</button>
-                        <ul class="dropdown-menu" role="menu">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="D_Dietary_button" style="width:12%;height:100%;">Dietary Plan</button>
+                        <ul class="dropdown-menu" role="menu" id="D_Dietary_menu">
                             <li role="presentation"><a href="#">First Item</a></li>
                             <li role="presentation"><a href="#">Second Item</a></li>
                             <li role="presentation"><a href="#">Third Item</a></li>
                         </ul>
                     </div>
                     <div class="panel panel-default" style="margin-top:20px;">
-                        <div class="panel-heading">
+                        <div class="panel-heading" style="width:100%;height:25%;">
                             <h3 class="panel-title">Daily Values</h3></div>
                         <div class="panel-body">
-                            <div class="col-md-5">
-                                <div class="dropdown" id="drop_Calories">
-                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="width:174px;font-size:20px;">Calories <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu">
+                            <div class="col-md-5" style="width:41.5%;height:25%;">
+                                <div class="dropdown" style="height:25%;width:42%;">
+                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="D_Calories_button" style="width:174px;font-size:20px;">Calories <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" id="D_Calories_menu">
                                         <li role="presentation"><a href="#">1000 </a></li>
                                         <li role="presentation"><a href="#">1000-2000 </a></li>
                                         <li role="presentation"><a href="#">2000+ </a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-5">
-                                <div class="dropdown" id="drop_Protein">
-                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="width:174px;font-size:20px;">Protein <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu">
+                            <div class="col-md-5" style="width:41.5%;height:25%;">
+                                <div class="dropdown" style="height:25%;width:41.5%;">
+                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="D_Protien_button" style="width:174px;font-size:20px;">Protein <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" id="D_Protein_menu">
                                         <li role="presentation"><a href="#">idk values</a></li>
                                         <li role="presentation"><a href="#">1000-2000 </a></li>
                                         <li role="presentation"><a href="#">2000+ </a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-5" style="padding-top:15px;">
-                                <div class="dropdown" id="drop_Fat">
-                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="width:174px;font-size:20px;">Fat <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu">
+                            <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
+                                <div class="dropdown" style="width:42%;">
+                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="D_Fat_button" style="width:174px;font-size:20px;">Fat <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" id="D_Fat_menu">
                                         <li role="presentation"><a href="#">1000 </a></li>
                                         <li role="presentation"><a href="#">1000-2000 </a></li>
                                         <li role="presentation"><a href="#">2000+ </a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-5" style="padding-top:15px;">
-                                <div class="dropdown" id="drop_Carbs">
+                            <div class="col-md-5" style="padding-top:1%;width:41.5%;height:44.1%;">
+                                <div class="dropdown">
                                     <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="width:174px;font-size:20px;">Carbs<span class="caret"></span></button>
                                     <ul class="dropdown-menu" role="menu">
                                         <li role="presentation"><a href="#">1000 </a></li>
@@ -157,9 +156,9 @@
                 <div class="tab-pane active" role="tabpanel" id="tab-3">
                     <div class="form-group">
                         <label class="control-label">Life Style</label>
-                        <div class="dropdown" id="drop_Lifestyle">
-                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dropdown <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="D_LifeStyle_button">Dropdown <span class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu" id="D_LifeStyle_menu">
                                 <li role="presentation"><a href="#">Pescetarian,</a></li>
                                 <li role="presentation"><a href="#">Lacto Vegetarian </a></li>
                                 <li role="presentation"><a href="#">Ovo Vegetarian </a></li>
@@ -175,105 +174,105 @@
                             <h1 style="margin-top:15px;">Style of Cuisine</h1></div>
                     </div>
                     <div class="col-md-3 col-md-offset-0" style="background-color:white;">
-                        <div class="checkbox" id="c_African">
+                        <div class="checkbox">
                             <label>
-                                <input type="checkbox">African</label>
+                                <input type="checkbox" id="c_African">African</label>
                         </div>
-                        <div class="checkbox" id="c_Chinese">
+                        <div class="checkbox">
                             <label>
-                                <input type="checkbox">Chinese</label>
+                                <input type="checkbox" id="c_Chinese">Chinese</label>
                         </div>
-                        <div class="checkbox" id="c_Japanese">
+                        <div class="checkbox">
                             <label style="padding-top:100;">
-                                <input type="checkbox">Japanese</label>
+                                <input type="checkbox" id="c_Japanese">Japanese</label>
                         </div>
                         <div class="checkbox">
-                            <label id="c_Korean">
-                                <input type="checkbox">Korean</label>
+                            <label>
+                                <input type="checkbox" id="c_Korean">Korean</label>
                         </div>
                         <div class="checkbox">
-                            <label id="c_Vietnamese">
-                                <input type="checkbox">Vietnamese</label>
+                            <label>
+                                <input type="checkbox" id="c_Vietnamese">Vietnamese</label>
                         </div>
                         <div class="checkbox">
-                            <label id="c_Spanish">
-                                <input type="checkbox">Spanishi</label>
+                            <label>
+                                <input type="checkbox" id="c_Spanish">Spanish</label>
                         </div>
                         <div class="checkbox">
-                            <label id="c_Middle">
-                                <input type="checkbox">Middle Eastern</label>
+                            <label>
+                                <input type="checkbox" id="c_Middle">Middle Eastern</label>
                         </div>
                         <div class="checkbox">
-                            <label id="c_Jewish">
-                                <input type="checkbox">Jewish</label>
+                            <label>
+                                <input type="checkbox" id="c_Jewish">Jewish</label>
                         </div>
                     </div>
                     <div class="col-md-3 col-md-offset-0" style="background-color:white;">
-                        <div class="checkbox" id="c_Indian">
+                        <div class="checkbox">
                             <label>
-                                <input type="checkbox">Indian</label>
+                                <input type="checkbox" id="c_Indian">Indian</label>
                         </div>
-                        <div class="checkbox" id="c_British">
+                        <div class="checkbox">
                             <label>
-                                <input type="checkbox">British</label>
+                                <input type="checkbox" id="c_British">British</label>
                         </div>
-                        <div class="checkbox" id="c_Irish">
+                        <div class="checkbox">
                             <label style="padding-top:100;">
-                                <input type="checkbox">Irish</label>
+                                <input type="checkbox" id="c_Irish">Irish</label>
                         </div>
-                        <div class="checkbox" id="c_French">
+                        <div class="checkbox">
                             <label>
-                                <input type="checkbox">French</label>
+                                <input type="checkbox" id="c_French">French</label>
                         </div>
                         <div class="checkbox">
-                            <label id="c_Italian">
-                                <input type="checkbox">Italian</label>
+                            <label>
+                                <input type="checkbox" id="c_Italian">Italian</label>
                         </div>
                         <div class="checkbox">
-                            <label id="c_Mexican">
-                                <input type="checkbox">Mexican</label>
+                            <label>
+                                <input type="checkbox" id="c_Mexican">Mexican</label>
                         </div>
                         <div class="checkbox">
-                            <label id="c_Thai">
-                                <input type="checkbox">Thai</label>
+                            <label>
+                                <input type="checkbox" id="c_Thai">Thai</label>
                         </div>
                         <div class="checkbox">
-                            <label id="c_Cajun">
-                                <input type="checkbox">Cajun</label>
+                            <label>
+                                <input type="checkbox" id="c_Cajun">Cajun</label>
                         </div>
                     </div>
                     <div class="col-md-3 col-md-offset-0" style="background-color:white;">
-                        <div class="checkbox" id="c_Southern">
+                        <div class="checkbox">
                             <label>
-                                <input type="checkbox">Southern</label>
+                                <input type="checkbox" id="c_Southern">Southern</label>
                         </div>
-                        <div class="checkbox" id="c_Greek">
+                        <div class="checkbox">
                             <label>
-                                <input type="checkbox">Greek</label>
+                                <input type="checkbox" id="c_Greek">Greek</label>
                         </div>
-                        <div class="checkbox" id="c_German">
+                        <div class="checkbox">
                             <label style="padding-top:100;">
-                                <input type="checkbox">German</label>
+                                <input type="checkbox" id="c_German">German</label>
                         </div>
-                        <div class="checkbox" id="c_Nordic">
+                        <div class="checkbox">
                             <label>
-                                <input type="checkbox">Nordic</label>
+                                <input type="checkbox" id="c_Nordic">Nordic</label>
                         </div>
                         <div class="checkbox">
-                            <label id="c_Eastern">
-                                <input type="checkbox">Eastern European</label>
+                            <label>
+                                <input type="checkbox" id="c_Eastern">Eastern European</label>
                         </div>
                         <div class="checkbox">
-                            <label id="c_American">
-                                <input type="checkbox">American</label>
+                            <label>
+                                <input type="checkbox" id="c_American">American</label>
                         </div>
                         <div class="checkbox">
-                            <label id="c_Caribbean">
-                                <input type="checkbox">Caribbean</label>
+                            <label>
+                                <input type="checkbox" id="c_Caribbean">Caribbean</label>
                         </div>
                         <div class="checkbox">
-                            <label id="c_Latin">
-                                <input type="checkbox">Latin American</label>
+                            <label>
+                                <input type="checkbox" id="c_Latin">Latin American</label>
                         </div>
                     </div>
                     <div class="row" style="margin:0;">
@@ -283,19 +282,19 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="control-label">Must Have's</label>
-                            <input type="text" id="text_include" style="margin-right:0px;margin-left:10px;width:292px;">
+                            <input type="text" id="text_Include" style="margin-right:0px;margin-left:10px;width:292px;">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="control-label">Have Not's</label>
-                            <input type="text" id="text_exclude" style="margin-left:21px;width:292px;">
+                            <input type="text" id="text_Exclude" style="margin-left:21px;width:292px;">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <button class="btn btn-default" type="button" id="button_Submit" style="padding-left:12px;margin-left:873px;padding-right:12px;margin-right:65px;">Button</button>
+        <button class="btn btn-default" type="button" id="button_Go" style="margin-left:92.9%;">Feed Me</button>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
