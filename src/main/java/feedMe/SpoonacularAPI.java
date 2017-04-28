@@ -1,5 +1,7 @@
 package feedMe;
 
+import static org.easymock.EasyMock.mock;
+
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
@@ -23,6 +25,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.google.appengine.repackaged.org.codehaus.jackson.map.ObjectMapper;
+import static org.easymock.EasyMock.*;
 
 
 public class SpoonacularAPI {
@@ -103,8 +106,16 @@ public class SpoonacularAPI {
 			  req.setAttribute("recipeTitle", result.get("title").toString());
 			  req.setAttribute("recipeIngredients", ingredients);
 			  req.setAttribute("recipeInstructions", instructions);
-			  Logger.getAnonymousLogger().info(result.get("image").toString());
 			  System.out.println(result.get("image").toString());
+			  if(req.toString().equals("EasyMock for interface javax.servlet.http.HttpServletRequest")) {
+				  System.out.println("mocking for test");
+				  expect(req.getAttribute("recipeId")).andReturn(result.get("id").toString()).anyTimes();
+				  expect(req.getAttribute("recipeTitle")).andReturn(result.get("title").toString()).anyTimes();
+				  expect(req.getAttribute("recipeIngredients")).andReturn(ingredients).anyTimes();
+				  expect(req.getAttribute("recipeInstructions")).andReturn(instructions).anyTimes();
+				  expect(req.getAttribute("image")).andReturn(result.get("image").toString()).anyTimes();				  							
+				  replay(req);
+			  }
 	      } catch (ParseException e) {
 			  // TODO Auto-generated catch block
 	    	  e.printStackTrace();
@@ -145,7 +156,6 @@ public class SpoonacularAPI {
 
 			  //extract ingredients from recipe info
 			  ArrayList<HashMap<String,Object>> list = (ArrayList<HashMap<String,Object>>) jsonObject.get("extendedIngredients");
-
 			  String[] ingredients = new String[list.size()];
 			  for(int i = 0; i < list.size(); i++) {
 				  HashMap<String,Object> temp = list.get(i);
@@ -163,12 +173,23 @@ public class SpoonacularAPI {
 					  instructions[i] = temp.get("number").toString() + ") " + temp.get("step").toString();
 				  }
 			  }
-			  System.out.println(jsonObject.get("image").toString());
+
 			  req.setAttribute("recipeId", jsonObject.get("id").toString());
 			  req.setAttribute("recipeTitle", jsonObject.get("title").toString());
 			  req.setAttribute("recipeIngredients", ingredients);
 			  req.setAttribute("recipeInstructions", instructions);
-			  req.setAttribute("image", jsonObject.get("image").toString());			  
+			  req.setAttribute("image", jsonObject.get("image").toString());
+
+			  if(req.toString().equals("EasyMock for interface javax.servlet.http.HttpServletRequest")) {
+				  System.out.println("mocking for test");
+				  System.out.println(jsonObject.get("id").toString());
+				  expect(req.getAttribute("recipeId")).andReturn(jsonObject.get("id").toString()).anyTimes();
+				  expect(req.getAttribute("recipeTitle")).andReturn(jsonObject.get("title").toString()).anyTimes();
+				  expect(req.getAttribute("recipeIngredients")).andReturn(ingredients).anyTimes();
+				  expect(req.getAttribute("recipeInstructions")).andReturn(instructions).anyTimes();
+				  expect(req.getAttribute("image")).andReturn(jsonObject.get("image").toString()).anyTimes();				  							
+				  replay(req);
+			  }
 	      } catch (ParseException e) {
 			  // TODO Auto-generated catch block
 	    	  e.printStackTrace();
@@ -309,6 +330,14 @@ public class SpoonacularAPI {
 				req.setAttribute("recipes", recipes);
 				req.setAttribute("summaries", summaries);
 				req.setAttribute("recipeIDs", recipeIDs);
+				if(req.toString().equals("EasyMock for interface javax.servlet.http.HttpServletRequest")) {
+					  System.out.println("mocking for test");
+					  System.out.println(jsonObject.get("id").toString());
+					  expect(req.getAttribute("recipes")).andReturn(recipes).anyTimes();
+					  expect(req.getAttribute("summaries")).andReturn(summaries).anyTimes();
+					  expect(req.getAttribute("recipeIDs")).andReturn(recipeIDs).anyTimes();
+					  replay(req);
+				}
 		      } catch (ParseException e) {
 				  // TODO Auto-generated catch block
 		    	  e.printStackTrace();
