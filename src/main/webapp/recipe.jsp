@@ -1,56 +1,60 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.google.appengine.api.users.User" %>
-<%@ page import="com.google.appengine.api.users.UserService" %>
-<%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
-<%@ page import="com.google.appengine.api.datastore.DatastoreServiceFactory" %>
-<%@ page import="com.google.appengine.api.datastore.DatastoreService" %>
-<%@ page import="com.google.appengine.api.datastore.Query" %>
-<%@ page import="com.google.appengine.api.datastore.Entity" %>
-<%@ page import="com.google.appengine.api.datastore.FetchOptions" %>
-<%@ page import="com.google.appengine.api.datastore.Key" %>
-<%@ page import="com.google.appengine.api.datastore.KeyFactory" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!DOCTYPE html>
+<html style="width:100%;height:100%;">
 
-<html>
-	<head>
-  		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="/stylesheets/main.css">		    	
-		<link rel="stylesheet" href="/stylesheets/simple-sidebar.css">		
-		<link rel="stylesheet" href="/stylesheets/bootstrap.css">
-		<link rel="stylesheet" href="/stylesheets/searchForm.css">	
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/bootstrap.min.js"></script>
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/bootstrap.min.js"></script>	  
-		<script src="/js/sidebarHeight.js"></script>																			
-  	</head>
-  	
-	<body>
-	  <!--  import sidebars and navbar -->
-	  <%@ include file="/html/navbar.html" %>
-	  
-	  <div id="leftborder" class="leftborder">
-	  	<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>			
-	  </div>	
-	  
-	  <div class="content" style="text-align:center">  
-		  		<h1><%=(String)request.getAttribute("recipeTitle")%></h1>
-			    <br></br>	
-			    
-			    <blockquote>Recipe Ingredients: <ul class="list-group">
-			
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button1.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body style="background-image:url(&quot;assets/img/food-drink-kitchen-cutting-board.jpg&quot;);width:100%;height:100%;">
+    <div style="width:100%;height:10%;">
+        <nav class="navbar navbar-default navigation-clean-button" style="background-color:rgb(37,35,35);width:100%;height:100%;">
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand navbar-link" href="#" style="color:rgb(142,142,142);padding-top:16%;padding-bottom:16%;">Feed Me</a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active" role="presentation"><a href="#" style="color:rgb(142,142,142);padding-top:16%;">Search </a></li>
+                        <li role="presentation"><a href="#" style="color:#8e8e8e;padding-top:16%;">Random </a></li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color:#8e8e8e;padding-top:16%;">Stored <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation"><a href="#">First Item</a></li>
+                                <li role="presentation"><a href="#">Second Item</a></li>
+                                <li role="presentation"><a href="#">Third Item</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="#" style="color:#8e8e8e;">Log In</a> <a class="btn btn-default action-button" role="button" href="#" id="b_sign">Sign Up</a></p>
+                </div>
+            </div>
+        </nav>
+    </div>
+     <div class="container" style="width:900;margin:30;background-color:White;">
+        <div class="row">
+            <div class="col-md-12">
+                <h1><%=(String)request.getAttribute("recipeTitle")%></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                Recipe Ingredients: 
+                <ul class="list-group">
 				<% String[] ingredients = (String[])request.getAttribute("recipeIngredients");
 			    	for(int j = 0; j < ingredients.length; j++)
 			    	{	%> 
 			        <li class="list-group-item"><%= 	ingredients[j].toString() + "\n"%></li>
 			   	<% } %>
 			    </ul>	
-			    </blockquote>
-			    
-			    <br></br>	
-			    
-			    <blockquote>Recipe Instructions: <ul class="list-group">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                Recipe Instructions: <ul class="list-group">
 			
 				<% String[] instructions = (String[])request.getAttribute("recipeInstructions");
 			    	for(int i = 0; i < instructions.length; i++)
@@ -58,31 +62,11 @@
 			    %>    <li class="list-group-item"><%= 	instructions[i].toString() + "\n"%></li>
 			    <% } %>
 			    </ul>	
-			    </blockquote>
-	  </div>
-	  
-	  <div id="rightborder" class="rightborder">
-			<div id="weeklyUpdate" class="weeklyUpdate">
-				<p><h3>Weekly Recipe</h3></p>
-					<br></br>
-				<% if(pageContext.getAttribute("user") != null) { %>
-					<%= feedMe.WeeklyUpdate.weeklyrecipe %>
-					<br></br>
-					<a href="/recipe/<%= feedMe.WeeklyUpdate.weeklyrecipeID %>" class="btn btn-primary">FeedMe this recipe!</a>
-			    <% }
-			     else {
-			    	pageContext.setAttribute("user",null); %>
-				    <p>Not subscribed to the weekly recipe</p> 
-				    
-				 <% } %>
-			</div>	
-		</div>
-		
-	  <%if(request.getRequestURI().contains("recipe")) { %>
-	  	<script type="text/javascript" src="../js/navbar.js"></script>
-	  <% } else { %>
-	  	<script type="text/javascript" src="/js/navbar.js"></script>	   	 
-	  <% } %>    	  
-	  <script type="text/javascript" src="/js/sidebarHeight.js"></script>	   	     	  
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>
