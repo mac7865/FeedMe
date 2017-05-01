@@ -19,23 +19,41 @@
     <div style="width:100%;height:10%;">
         <nav class="navbar navbar-default navigation-clean-button" style="background-color:rgb(37,35,35);width:100%;height:100%;">
             <div class="container">
-                <div class="navbar-header"><a class="navbar-brand navbar-link" href="#" style="color:rgb(142,142,142);padding-top:16%;padding-bottom:16%;">Feed Me</a>
+                <div class="navbar-header"><a class="navbar-brand navbar-link" href="/" style="color:rgb(142,142,142);padding-top:16%;padding-bottom:16%;">Feed Me</a>
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 </div>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav">
-                        <li class="active" role="presentation"><a href="#" style="color:rgb(142,142,142);padding-top:16%;">Search </a></li>
-                        <li role="presentation"><a href="#" style="color:#8e8e8e;padding-top:16%;">Random </a></li>
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color:#8e8e8e;padding-top:16%;">Stored <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li role="presentation"><a href="#">First Item</a></li>
-                                <li role="presentation"><a href="#">Second Item</a></li>
-                                <li role="presentation"><a href="#">Third Item</a></li>
-                            </ul>
-                        </li>
+                        <li role="presentation"><a href="/random" style="color:#8e8e8e;padding-top:16%;">Random </a></li>
                     </ul>
-                    <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="#" style="color:#8e8e8e;">Log In</a> <a class="btn btn-default action-button" role="button" href="#" id="b_sign">Sign Up</a></p>
-                </div>
+					<p class="navbar-text navbar-right actions">
+                    	<%
+			
+					    UserService userService = UserServiceFactory.getUserService();
+				
+					    User user = userService.getCurrentUser();
+				
+					    if (user != null) {
+				
+					      pageContext.setAttribute("user", user);
+				
+						%>
+										
+						<a href="<%= userService.createLogoutURL("/home.jsp") %>">Sign out</a></p>
+					
+						<%
+					
+						    } else {
+					
+						%>
+						<a href="<%= userService.createLoginURL("/home.jsp") %>">Sign in</a>
+									
+						<%
+					
+						    }
+				
+						%></p>
+                    </p>                </div>
             </div>
         </nav>
     </div>
