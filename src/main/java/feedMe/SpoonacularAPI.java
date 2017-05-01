@@ -106,7 +106,7 @@ public class SpoonacularAPI {
 			  req.setAttribute("recipeTitle", result.get("title").toString());
 			  req.setAttribute("recipeIngredients", ingredients);
 			  req.setAttribute("recipeInstructions", instructions);
-			  System.out.println(result.get("image").toString());
+			  req.setAttribute("image", result.get("image").toString());
 			  if(req.toString().equals("EasyMock for interface javax.servlet.http.HttpServletRequest")) {
 				  System.out.println("mocking for test");
 				  expect(req.getAttribute("recipeId")).andReturn(result.get("id").toString()).anyTimes();
