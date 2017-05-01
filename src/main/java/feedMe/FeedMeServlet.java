@@ -32,9 +32,11 @@ public class FeedMeServlet extends HttpServlet {
 		//string must be built in proper order, refer to Spoonacular API
 		
 		StringBuilder urlBuilder = new StringBuilder("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?instructionsRequired=true"+"&limitLicense=false&number=3&offset="+offset+"&ranking=1");
-		if((String)req.getParameter("query") != null)
+		try {
 			urlBuilder.append("&query="+(String)req.getParameter("query").replace(' ', '+'));
-		
+		} catch(Exception e) {
+			
+		}
 			try{
 				Integer.parseInt(req.getParameter("maxFat"));
 				urlBuilder.append("&maxCalories="+(String)req.getParameter("maxCalories"));
