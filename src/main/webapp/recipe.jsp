@@ -34,7 +34,7 @@
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav">
                         <li class="active" role="presentation"><a href="#" style="color:rgb(142,142,142);padding-top:16%;">Search </a></li>
-                        <li role="presentation"><a href="#" style="color:#8e8e8e;padding-top:16%;">Random </a></li>
+                        <li role="presentation"><a href="../random" style="color:#8e8e8e;padding-top:16%;">Random </a></li>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color:#8e8e8e;padding-top:16%;">Stored <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li role="presentation"><a href="#">First Item</a></li>
@@ -49,11 +49,18 @@
         </nav>
     </div>
      <div class="container" style="width:900;margin:30;background-color:White;">
-        <div class="row">
-            <div class="col-md-12">
-                <h1><%=(String)request.getAttribute("recipeTitle")%></h1>
-            </div>
-        </div>
+     	<center>
+	        <div class="row">
+	            <div class="col-md-12">
+	                <h1><%=(String)request.getAttribute("recipeTitle")%></h1>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <div class="col-md-12">
+	                <img src=<%=(String)request.getAttribute("image")%> class="img-rounded" width="304" height="236">
+	            </div>
+	        </div>
+        </center>
         <div class="row">
             <div class="col-md-12">
                 Recipe Ingredients: 
