@@ -18,10 +18,15 @@ public class SpecificRecipeServlet extends HttpServlet {
 		String url = req.getRequestURL().toString();
 		String recipeString = url.substring(url.lastIndexOf('/')+1, url.length());
 		Logger.getAnonymousLogger().info(recipeString);
-		int recipeId = Integer.parseInt(recipeString);
-		HttpURLConnection conn = SpoonacularAPI.getUniqueInstance().getSpecificRecipeConnection(recipeId);
-		req = SpoonacularAPI.getUniqueInstance().parseSpecificRecipe(req, conn);
-		req.getRequestDispatcher("/recipe.jsp").forward(req, resp);
+		int recipeId = 0;
+		try {
+			recipeId = Integer.parseInt(recipeString);
+			HttpURLConnection conn = SpoonacularAPI.getUniqueInstance().getSpecificRecipeConnection(recipeId);
+			req = SpoonacularAPI.getUniqueInstance().parseSpecificRecipe(req, conn);
+			req.getRequestDispatcher("/recipe.jsp").forward(req, resp);
+		} catch(Exception e) {
+			
+		}
 
 	}
 	
