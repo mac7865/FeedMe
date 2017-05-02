@@ -120,7 +120,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" role="tabpanel" name="tab-2" style="background-color:white;">
+                <div class="tab-pane" role="tabpanel" id="tab-2" style="background-color:white;">
                     <h1 style="background-color:white;">Nutrition: </h1>
                     <div class="dropdown">
                         <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" name="D_Dietary_button" style="width:12%;height:100%;">Dietary Plan</button>
@@ -177,7 +177,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane active" role="tabpanel" name="tab-3">
+                <div class="tab-pane active" role="tabpanel" id="tab-3">
                     <div class="form-group">
                         <label class="control-label">Life Style</label>
                         <div class="dropdown">
