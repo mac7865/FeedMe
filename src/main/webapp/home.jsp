@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
+    <title>Feed Me</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Button1.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -15,6 +15,7 @@
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
 
+
 <body style="background-image:url(&quot;assets/img/food-drink-kitchen-cutting-board.jpg&quot;);width:100%;height:100%;">
     <div style="width:100%;height:10%;">
         <nav class="navbar navbar-default navigation-clean-button" style="background-color:rgb(37,35,35);width:100%;height:100%;">
@@ -24,9 +25,10 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav">
-                        <li role="presentation"><a href="/random" style="color:#8e8e8e;padding-top:16%;">Random </a></li>
+                        <li role="presentation"><a href="/random" style="color:#8e8e8e;padding-top:16%;">Random </a></li>          
                     </ul>
-					<p class="navbar-text navbar-right actions">
+                    
+                    <p class="navbar-text navbar-right actions">
                     	<%
 			
 					    UserService userService = UserServiceFactory.getUserService();
@@ -53,12 +55,13 @@
 						    }
 				
 						%></p>
-                    </p>                </div>
+                    </p>
+                </div>
             </div>
         </nav>
     </div>
     <div class="container" style="width:900;margin:30;background-color:White;">
-    	<form action="/search" method="post">
+    <form action="/search" method="post">
         <div style="background-color:white;">
             <ul class="nav nav-tabs" style="padding-right:%;padding-left:0%;width:100%;height:8%;">
                 <li><a href="#tab-1" role="tab" data-toggle="tab" style="background-color:white;width:100%;">Allergies </a></li>
@@ -121,78 +124,58 @@
                     </div>
                 </div>
                 <div class="tab-pane" role="tabpanel" id="tab-2" style="background-color:white;">
-                    <h1 style="background-color:white;">Nutrition: </h1>
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" name="D_Dietary_button" style="width:12%;height:100%;">Dietary Plan</button>
-                        <ul class="dropdown-menu" role="menu" name="D_Dietary_menu">
-                            <li role="presentation"><a href="#">First Item</a></li>
-                            <li role="presentation"><a href="#">Second Item</a></li>
-                            <li role="presentation"><a href="#">Third Item</a></li>
-                        </ul>
-                    </div>
                     <div class="panel panel-default" style="margin-top:20px;">
                         <div class="panel-heading" style="width:100%;height:25%;">
-                            <h3 class="panel-title">Daily Values</h3></div>
+                            <h3 class="panel-title" style="font-size:22px;">Daily Values</h3></div>
                         <div class="panel-body">
-                            <div class="col-md-5" style="width:41.5%;height:25%;">
-                                <div class="dropdown" style="height:25%;width:42%;">
-                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" name="D_Calories_button" style="width:174px;font-size:20px;">Calories <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu" name="D_Calories_menu">
-                                        <li role="presentation"><a href="#">1000 </a></li>
-                                        <li role="presentation"><a href="#">1000-2000 </a></li>
-                                        <li role="presentation"><a href="#">2000+ </a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5" style="width:41.5%;height:25%;">
-                                <div class="dropdown" style="height:25%;width:41.5%;">
-                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" name="D_Protien_button" style="width:174px;font-size:20px;">Protein <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu" name="D_Protein_menu">
-                                        <li role="presentation"><a href="#">idk values</a></li>
-                                        <li role="presentation"><a href="#">1000-2000 </a></li>
-                                        <li role="presentation"><a href="#">2000+ </a></li>
-                                    </ul>
-                                </div>
+                            <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
+                                <label style="font-size:14px;">Max Calories</label>
+                                <input type="number" name="maxCalories" style="font-size:14px;padding-left:0px;margin-left:5%;" name="maxCalories">
                             </div>
                             <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
-                                <div class="dropdown" style="width:42%;">
-                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" name="D_Fat_button" style="width:174px;font-size:20px;">Fat <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu" name="D_Fat_menu">
-                                        <li role="presentation"><a href="#">1000 </a></li>
-                                        <li role="presentation"><a href="#">1000-2000 </a></li>
-                                        <li role="presentation"><a href="#">2000+ </a></li>
-                                    </ul>
-                                </div>
+                                <label style="font-size:14px;">Min Calories </label>
+                                <input type="number" name="minCalories" style="font-size:14px;" name="minCalories">
                             </div>
-                            <div class="col-md-5" style="padding-top:1%;width:41.5%;height:44.1%;">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="width:174px;font-size:20px;">Carbs<span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li role="presentation"><a href="#">1000 </a></li>
-                                        <li role="presentation"><a href="#">1000-2000 </a></li>
-                                        <li role="presentation"><a href="#">2000+ </a></li>
-                                    </ul>
-                                </div>
+                            <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
+                                <label style="font-size:14px;">Max Fat </label>
+                                <input type="number" name="maxFat" style="font-size:14px;margin-left:49px;" name="maxFat">
+                            </div>
+                            <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
+                                <label style="font-size:14px;">Min Fat</label>
+                                <input type="number" style="font-size:14px;margin-top:0px;margin-right:0px;margin-left:40px;" name="minFat">
+                            </div>
+                            <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
+                                <label style="font-size:14px;">Max Protein </label>
+                                <input type="number" style="font-size:14px;margin-left:18px;" name="maxProtein">
+                            </div>
+                            <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
+                                <label style="font-size:14px;">Min Protein</label>
+                                <input type="number" style="font-size:14px;margin-left:5%;" name="minProtein">
+                            </div>
+                            <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
+                                <label style="font-size:14px;">Max Carbs</label>
+                                <input type="number" style="font-size:14px;margin-left:32px;" name="maxCarbs">
+                            </div>
+                            <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
+                                <label style="font-size:14px;">Min Carbs</label>
+                                <input type="number" style="font-size:14px;margin-left:7%;" name="minCarbs">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane active" role="tabpanel" id="tab-3">
-                    <div class="form-group">
-                        <label class="control-label">Life Style</label>
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" name="D_LifeStyle_button">Dropdown <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu" name="D_LifeStyle_menu">
-                                <li role="presentation"><a href="#">Pescetarian,</a></li>
-                                <li role="presentation"><a href="#">Lacto Vegetarian </a></li>
-                                <li role="presentation"><a href="#">Ovo Vegetarian </a></li>
-                                <li role="presentation"><a href="#">Vegan</a></li>
-                                <li role="presentation"><a href="#">Paleo </a></li>
-                                <li role="presentation"><a href="#">Primal </a></li>
-                                <li role="presentation"><a href="#">Vegetarian </a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <h1 style="font-size:28px;height:23px;">Life Style</h1>
+                    <select class="s_Lifesyle" style="margin:0px;height:32px;font-size:19px;" name="s_LifeStyle">
+                            <option value="null" >Omnivore</option>
+                            <option value="pescetarian">Pescetarian</option>
+                            <option value="lacto+vegetarian">Lacto Vegetarian</option>
+                            <option value="ovo+vegetarian">Ovo Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="paleo">Paleo</option>
+                            <option value="primal">Primal</option>
+                            <option value="vegetarian">Vegetarian</option>
+                        
+                    </select>
                     <div class="row" style="margin:0;">
                         <div class="col-md-12" style="background-color:white;">
                             <h1 style="margin-top:15px;">Style of Cuisine</h1></div>
@@ -318,7 +301,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-default" type="submit" name="button_Go" style="margin-left:92.9%;">Feed Me</button>
+                <button class="btn btn-default" type="submit" name="button_Go" style="margin-left:92.9%;">Feed Me</button>
         </form>
     </div>
     <script src="assets/js/jquery.min.js"></script>

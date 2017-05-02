@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
+    <title>Feed Me</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Button1.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -74,7 +74,7 @@
 					ArrayList<Long> recipeIDs = (ArrayList<Long>)request.getAttribute("recipeIDs");
 					System.out.println(recipeIDs.toString());
 					ArrayList<String> summaries = (ArrayList<String>)request.getAttribute("summaries");
-			    	for(int i = 0; i < recipeIDs.size(); i++)
+			    	for(int i = 0; i < recipes.size(); i++)
 			    	{
 				    %>  
 				    	 <div class="jumbotron">

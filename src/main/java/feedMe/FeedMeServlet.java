@@ -128,12 +128,11 @@ public class FeedMeServlet extends HttpServlet {
 				urlBuilder.replace(urlBuilder.indexOf(" "), urlBuilder.indexOf(" ")+1, "+");
 			}	
 		}
-		System.out.println(req.getParameter("text_Exclude").equals(""));
+
 		if(!req.getParameter("text_Exclude").equals("")) {
 			urlBuilder.append("&excludeIngredients="+(String)req.getParameter("text_Exclude"));
 			while(urlBuilder.indexOf(",") != -1) {
 				urlBuilder.replace(urlBuilder.indexOf(","), urlBuilder.indexOf(",")+1, "%2c");
-				System.out.println(urlBuilder.toString());
 
 			}
 			while(urlBuilder.indexOf(" ") != -1) {
@@ -252,6 +251,14 @@ public class FeedMeServlet extends HttpServlet {
 				// not an integer!
 			}
 		
+			System.out.println(req.getParameter("s_LifeStyle") != null);
+			System.out.println(req.getParameter("s_LifeStyle"));
+		try{
+			if(!req.getParameter("s_LifeStyle").equals("null")) {
+				System.out.println(req.getParameter("s_LifeStyle"));
+				urlBuilder.append("&diet="+(String)req.getParameter("s_LifeStyle"));
+			}
+		} catch(Exception e) {}
 		
 		Logger.getAnonymousLogger().info(urlBuilder.toString());
 		URL url = new URL(urlBuilder.toString());
