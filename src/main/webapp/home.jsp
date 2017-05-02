@@ -74,57 +74,57 @@
                     <div class="col-md-5 col-md-offset-0" style="background-color:white;width:40%;">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Dairy">Dairy</label>
+                                <input type="checkbox" name="c_Dairy">Dairy</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Egg">Egg</label>
+                                <input type="checkbox" name="c_Egg">Egg</label>
                         </div>
                         <div class="checkbox">
                             <label style="padding-top:100;">
-                                <input type="checkbox" id="c_Tree">Tree Nuts</label>
+                                <input type="checkbox" name="c_Tree">Tree Nuts</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Gluten">Gluten</label>
+                                <input type="checkbox" name="c_Gluten">Gluten</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Peanuts">Peanuts</label>
+                                <input type="checkbox" name="c_Peanuts">Peanuts</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Sesame">Sesame</label>
+                                <input type="checkbox" name="c_Sesame">Sesame</label>
                         </div>
                     </div>
                     <div class="col-md-4" style="background-color:White;height:165px;width:40%;">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Seafood">Seafood</label>
+                                <input type="checkbox" name="c_Seafood">Seafood</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Shellfish">Shellfish</label>
+                                <input type="checkbox" name="c_Shellfish">Shellfish</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Soy">Soy</label>
+                                <input type="checkbox" name="c_Soy">Soy</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Sulfite">Sulfite</label>
+                                <input type="checkbox" name="c_Sulfite">Sulfite</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Wheat">Wheat</label>
+                                <input type="checkbox" name="c_Wheat">Wheat</label>
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" role="tabpanel" id="tab-2" style="background-color:white;">
+                <div class="tab-pane" role="tabpanel" name="tab-2" style="background-color:white;">
                     <h1 style="background-color:white;">Nutrition: </h1>
                     <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="D_Dietary_button" style="width:12%;height:100%;">Dietary Plan</button>
-                        <ul class="dropdown-menu" role="menu" id="D_Dietary_menu">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" name="D_Dietary_button" style="width:12%;height:100%;">Dietary Plan</button>
+                        <ul class="dropdown-menu" role="menu" name="D_Dietary_menu">
                             <li role="presentation"><a href="#">First Item</a></li>
                             <li role="presentation"><a href="#">Second Item</a></li>
                             <li role="presentation"><a href="#">Third Item</a></li>
@@ -136,8 +136,8 @@
                         <div class="panel-body">
                             <div class="col-md-5" style="width:41.5%;height:25%;">
                                 <div class="dropdown" style="height:25%;width:42%;">
-                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="D_Calories_button" style="width:174px;font-size:20px;">Calories <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu" id="D_Calories_menu">
+                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" name="D_Calories_button" style="width:174px;font-size:20px;">Calories <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" name="D_Calories_menu">
                                         <li role="presentation"><a href="#">1000 </a></li>
                                         <li role="presentation"><a href="#">1000-2000 </a></li>
                                         <li role="presentation"><a href="#">2000+ </a></li>
@@ -146,8 +146,8 @@
                             </div>
                             <div class="col-md-5" style="width:41.5%;height:25%;">
                                 <div class="dropdown" style="height:25%;width:41.5%;">
-                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="D_Protien_button" style="width:174px;font-size:20px;">Protein <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu" id="D_Protein_menu">
+                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" name="D_Protien_button" style="width:174px;font-size:20px;">Protein <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" name="D_Protein_menu">
                                         <li role="presentation"><a href="#">idk values</a></li>
                                         <li role="presentation"><a href="#">1000-2000 </a></li>
                                         <li role="presentation"><a href="#">2000+ </a></li>
@@ -156,8 +156,8 @@
                             </div>
                             <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
                                 <div class="dropdown" style="width:42%;">
-                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="D_Fat_button" style="width:174px;font-size:20px;">Fat <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu" id="D_Fat_menu">
+                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" name="D_Fat_button" style="width:174px;font-size:20px;">Fat <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" name="D_Fat_menu">
                                         <li role="presentation"><a href="#">1000 </a></li>
                                         <li role="presentation"><a href="#">1000-2000 </a></li>
                                         <li role="presentation"><a href="#">2000+ </a></li>
@@ -177,12 +177,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane active" role="tabpanel" id="tab-3">
+                <div class="tab-pane active" role="tabpanel" name="tab-3">
                     <div class="form-group">
                         <label class="control-label">Life Style</label>
                         <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="D_LifeStyle_button">Dropdown <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu" id="D_LifeStyle_menu">
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" name="D_LifeStyle_button">Dropdown <span class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu" name="D_LifeStyle_menu">
                                 <li role="presentation"><a href="#">Pescetarian,</a></li>
                                 <li role="presentation"><a href="#">Lacto Vegetarian </a></li>
                                 <li role="presentation"><a href="#">Ovo Vegetarian </a></li>
@@ -200,103 +200,103 @@
                     <div class="col-md-3 col-md-offset-0" style="background-color:white;">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_African">African</label>
+                                <input type="checkbox" name="c_African">African</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Chinese">Chinese</label>
+                                <input type="checkbox" name="c_Chinese">Chinese</label>
                         </div>
                         <div class="checkbox">
                             <label style="padding-top:100;">
-                                <input type="checkbox" id="c_Japanese">Japanese</label>
+                                <input type="checkbox" name="c_Japanese">Japanese</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Korean">Korean</label>
+                                <input type="checkbox" name="c_Korean">Korean</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Vietnamese">Vietnamese</label>
+                                <input type="checkbox" name="c_Vietnamese">Vietnamese</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Spanish">Spanish</label>
+                                <input type="checkbox" name="c_Spanish">Spanish</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Middle">Middle Eastern</label>
+                                <input type="checkbox" name="c_Middle">Middle Eastern</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Jewish">Jewish</label>
+                                <input type="checkbox" name="c_Jewish">Jewish</label>
                         </div>
                     </div>
                     <div class="col-md-3 col-md-offset-0" style="background-color:white;">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Indian">Indian</label>
+                                <input type="checkbox" name="c_Indian">Indian</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_British">British</label>
+                                <input type="checkbox" name="c_British">British</label>
                         </div>
                         <div class="checkbox">
                             <label style="padding-top:100;">
-                                <input type="checkbox" id="c_Irish">Irish</label>
+                                <input type="checkbox" name="c_Irish">Irish</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_French">French</label>
+                                <input type="checkbox" name="c_French">French</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Italian">Italian</label>
+                                <input type="checkbox" name="c_Italian">Italian</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Mexican">Mexican</label>
+                                <input type="checkbox" name="c_Mexican">Mexican</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Thai">Thai</label>
+                                <input type="checkbox" name="c_Thai">Thai</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Cajun">Cajun</label>
+                                <input type="checkbox" name="c_Cajun">Cajun</label>
                         </div>
                     </div>
                     <div class="col-md-3 col-md-offset-0" style="background-color:white;">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Southern">Southern</label>
+                                <input type="checkbox" name="c_Southern">Southern</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Greek">Greek</label>
+                                <input type="checkbox" name="c_Greek">Greek</label>
                         </div>
                         <div class="checkbox">
                             <label style="padding-top:100;">
-                                <input type="checkbox" id="c_German">German</label>
+                                <input type="checkbox" name="c_German">German</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Nordic">Nordic</label>
+                                <input type="checkbox" name="c_Nordic">Nordic</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Eastern">Eastern European</label>
+                                <input type="checkbox" name="c_Eastern">Eastern European</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_American">American</label>
+                                <input type="checkbox" name="c_American">American</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Caribbean">Caribbean</label>
+                                <input type="checkbox" name="c_Caribbean">Caribbean</label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="c_Latin">Latin American</label>
+                                <input type="checkbox" name="c_Latin">Latin American</label>
                         </div>
                     </div>
                     <div class="row" style="margin:0;">
@@ -306,19 +306,19 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="control-label">Must Have's</label>
-                            <input type="text" id="text_Include" style="margin-right:0px;margin-left:10px;width:292px;">
+                            <input type="text" name="text_Include" style="margin-right:0px;margin-left:10px;width:292px;">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="control-label">Have Not's</label>
-                            <input type="text" id="text_Exclude" style="margin-left:21px;width:292px;">
+                            <input type="text" name="text_Exclude" style="margin-left:21px;width:292px;">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <button class="btn btn-default" type="submit" id="button_Go" style="margin-left:92.9%;">Feed Me</button>
+        <button class="btn btn-default" type="submit" name="button_Go" style="margin-left:92.9%;">Feed Me</button>
         </form>
     </div>
     <script src="assets/js/jquery.min.js"></script>
