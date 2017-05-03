@@ -23,7 +23,7 @@
                 <div class="navbar-header"><a class="navbar-brand navbar-link" href="#" style="color:rgb(142,142,142);padding-top:16%;padding-bottom:16%;">Feed Me</a>
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 </div>
-                <div class="collapse navbar-collapse" id="navcol-1">
+                <div class="collapse navbar-collapse" name="navcol-1">
                     <ul class="nav navbar-nav">
                         <li class="active" role="presentation"><a href="#" style="color:rgb(142,142,142);padding-top:16%;">Search </a></li>
                         <li role="presentation"><a href="#" style="color:#8e8e8e;padding-top:16%;">Random </a></li>
@@ -75,7 +75,7 @@
                 <li class="active"><a href="#tab-3" role="tab" data-toggle="tab" style="background-color:white;">Preference </a></li>
             </ul>
             <div class="tab-content">
-                <div class="tab-pane" role="tabpanel" id="tab-1">
+                <div class="tab-pane" role="tabpanel" name="tab-1">
                     <div class="row" style="margin:0;">
                         <div class="col-md-12" style="background-color:white;width:100%;height:20%;">
                             <h1><strong>What are your Allergies</strong>?</h1></div>
@@ -129,57 +129,58 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" role="tabpanel" id="tab-2" style="background-color:white;">
+                <div class="tab-pane" role="tabpanel" name="tab-2" style="background-color:white;">
                     <div class="panel panel-default" style="margin-top:20px;">
                         <div class="panel-heading" style="width:100%;height:25%;">
                             <h3 class="panel-title" style="font-size:22px;">Daily Values</h3></div>
                         <div class="panel-body">
                             <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
                                 <label style="font-size:14px;">Max Calories</label>
-                                <input type="number" name="maxCalories" style="font-size:14px;padding-left:0px;margin-left:5%;" name="maxCalories">
+                                <input type="number" name="t_MaxCal" style="font-size:14px;padding-left:0px;margin-left:5%;" name="t_MaxCal">
                             </div>
                             <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
                                 <label style="font-size:14px;">Min Calories </label>
-                                <input type="number" name="minCalories" style="font-size:14px;" name="minCalories">
+                                <input type="number" name="t_MinCal" style="font-size:14px;" name="t_MinCal">
                             </div>
                             <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
                                 <label style="font-size:14px;">Max Fat </label>
-                                <input type="number" name="maxFat" style="font-size:14px;margin-left:49px;" name="maxFat">
+                                <input type="number" name="t_MaxFat" style="font-size:14px;margin-left:49px;" name="t_MaxFat">
                             </div>
                             <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
                                 <label style="font-size:14px;">Min Fat</label>
-                                <input type="number" style="font-size:14px;margin-top:0px;margin-right:0px;margin-left:40px;" name="minFat">
+                                <input type="number" style="font-size:14px;margin-top:0px;margin-right:0px;margin-left:40px;" name="t_MinFat">
                             </div>
                             <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
                                 <label style="font-size:14px;">Max Protein </label>
-                                <input type="number" style="font-size:14px;margin-left:18px;" name="maxProtein">
+                                <input type="number" style="font-size:14px;margin-left:18px;" name="t_MaxProtein">
                             </div>
                             <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
-                                <label style="font-size:14px;">Min Protein</label>
-                                <input type="number" style="font-size:14px;margin-left:5%;" name="minProtein">
+                                <label style="font-size:14px;">Min Proten</label>
+                                <input type="number" style="font-size:14px;margin-left:5%;" name="t_MinProtein">
                             </div>
                             <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
                                 <label style="font-size:14px;">Max Carbs</label>
-                                <input type="number" style="font-size:14px;margin-left:32px;" name="maxCarbs">
+                                <input type="number" style="font-size:14px;margin-left:32px;" name="t_MaxCarbs">
                             </div>
                             <div class="col-md-5" style="padding-top:15px;width:41.5%;height:44.1%;">
                                 <label style="font-size:14px;">Min Carbs</label>
-                                <input type="number" style="font-size:14px;margin-left:7%;" name="minCarbs">
+                                <input type="number" style="font-size:14px;margin-left:7%;" name="t_MinCarbs">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane active" role="tabpanel" id="tab-3">
+                <div class="tab-pane active" role="tabpanel" name="tab-3">
                     <h1 style="font-size:28px;height:23px;">Life Style</h1>
                     <select class="s_Lifesyle" style="margin:0px;height:32px;font-size:19px;" name="s_LifeStyle">
-                            <option value="null" >Omnivore</option>
-                            <option value="pescetarian">Pescetarian</option>
-                            <option value="lacto+vegetarian">Lacto Vegetarian</option>
-                            <option value="ovo+vegetarian">Ovo Vegetarian</option>
-                            <option value="vegan">Vegan</option>
-                            <option value="paleo">Paleo</option>
-                            <option value="primal">Primal</option>
-                            <option value="vegetarian">Vegetarian</option>
+                        
+                            <option value=null >Omnivore</option>
+                            <option value="Pescetarian">Pescetarian</option>
+                            <option value="Lacto Vegetarian">Lacto Vegetarian</option>
+                            <option value="Ovo Vegetarian">Ovo Vegetarian</option>
+                            <option value="Vegan">Vegan</option>
+                            <option value="Paleo">Paleo</option>
+                            <option value="Primal">Primal</option>
+                            <option value="Vegetarian">Vegetarian</option>
                         
                     </select>
                     <div class="row" style="margin:0;">
@@ -187,105 +188,105 @@
                             <h1 style="margin-top:15px;">Style of Cuisine</h1></div>
                     </div>
                     <div class="col-md-3 col-md-offset-0" style="background-color:white;">
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_African">African</label>
+                                <input type="radio" name="radio">African</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Chinese">Chinese</label>
+                                <input type="radio" name="radio">Chinese</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label style="padding-top:100;">
-                                <input type="checkbox" name="c_Japanese">Japanese</label>
+                                <input type="radio" name="radio">Japanese</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Korean">Korean</label>
+                                <input type="radio" name="radio">Korean</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Vietnamese">Vietnamese</label>
+                                <input type="radio" name="radio">Vietnamese</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Spanish">Spanish</label>
+                                <input type="radio" name="radio">Spanish</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Middle">Middle Eastern</label>
+                                <input type="radio" name="radio">Middle Eastern</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Jewish">Jewish</label>
+                                <input type="radio" name="radio">Jewish</label>
                         </div>
                     </div>
                     <div class="col-md-3 col-md-offset-0" style="background-color:white;">
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Indian">Indian</label>
+                                <input type="radio" name="radio">Indian</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_British">British</label>
+                                <input type="radio" name="radio">British</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label style="padding-top:100;">
-                                <input type="checkbox" name="c_Irish">Irish</label>
+                                <input type="radio" name="radio">Irish</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_French">French</label>
+                                <input type="radio" name="radio">French</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Italian">Italian</label>
+                                <input type="radio" name="radio">Italian</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Mexican">Mexican</label>
+                                <input type="radio" name="radio">Mexican</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Thai">Thai</label>
+                                <input type="radio" name="radio">Thai</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Cajun">Cajun</label>
+                                <input type="radio" name="radio">Cajun</label>
                         </div>
                     </div>
                     <div class="col-md-3 col-md-offset-0" style="background-color:white;">
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Southern">Southern</label>
+                                <input type="radio" name="radio">Southern</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Greek">Greek</label>
+                                <input type="radio" name="radio">Greek</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label style="padding-top:100;">
-                                <input type="checkbox" name="c_German">German</label>
+                                <input type="radio" name="radio">German</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Nordic">Nordic</label>
+                                <input type="radio" name="radio">Nordic</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Eastern">Eastern European</label>
+                                <input type="radio" name="radio">Eastern European</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_American">American</label>
+                                <input type="radio" name="radio">American</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Caribbean">Caribbean</label>
+                                <input type="radio" name="radio">Caribbean</label>
                         </div>
-                        <div class="checkbox">
+                        <div class="radio">
                             <label>
-                                <input type="checkbox" name="c_Latin">Latin American</label>
+                                <input type="radio" name="radio">Latin American</label>
                         </div>
                     </div>
                     <div class="row" style="margin:0;">
